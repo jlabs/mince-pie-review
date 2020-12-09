@@ -10,6 +10,11 @@ export default {
       title: 'Title'
     },
     {
+      name: 'facebook',
+      type: 'string',
+      title: 'Facebook'
+    },
+    {
       name: 'description',
       type: 'text',
       title: 'Description',

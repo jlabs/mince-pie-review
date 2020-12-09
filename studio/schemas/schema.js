@@ -10,12 +10,20 @@ import category from './documents/category'
 import post from './documents/post'
 import siteSettings from './documents/siteSettings'
 
+import mincepie from './documents/mincepie'
+import reviewer from './documents/reviewer'
+import review from './documents/review'
+
+
 // Object types
 import bodyPortableText from './objects/bodyPortableText'
 import bioPortableText from './objects/bioPortableText'
 import excerptPortableText from './objects/excerptPortableText'
 import mainImage from './objects/mainImage'
 import authorReference from './objects/authorReference'
+
+import reviewerReference from './objects/reviewerReference'
+import mincepieReference from './objects/mincepieReference'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -34,7 +42,13 @@ export default createSchema({
     authorReference,
     bodyPortableText,
     bioPortableText,
-    excerptPortableText
+    excerptPortableText,
+
+    mincepie,
+    mincepieReference,
+    reviewer,
+    reviewerReference,
+    review
 
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas
