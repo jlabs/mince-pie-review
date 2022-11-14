@@ -3,17 +3,10 @@
 // is your "component front matter". It never runs in the browser.
 
 import BaseLayout from '../layouts/BaseLayout.astro';
-//import GridItem from '../components/SpecialistGridItem.astro';
+import GridItem from '../components/SpecialistGridItem.astro';
 ---
 <!-- Below is your "component template." It's just HTML, but with
 	some magic sprinkled in to help you build great templates. -->
-<BaseLayout>
-	<section class="">
-		<h2>Latest Reviews</h2>
-		<div class="latest-reviews">
-			<div class="latest-review">
-				<a href="/">Tesco Taste The Difference - 15/20</a>
-			</div>
-		</div>
-	</section>
+<BaseLayout title='Reviews'>
+	Reviews
 </BaseLayout>

@@ -1,0 +1,19 @@
+---
+const pathname = new URL(Astro.request.url).pathname;
+const currentPath = pathname.slice(1); // remove the first "/"
+---
+<style>
+   .active, a:hover {
+      color: orange;
+   }
+</style>
+
+<div class="grid place-content-between grid-cols-2 m-4">
+   <div class="">
+      
+   </div>
+   <nav class="text-white grid grid-flow-col	justify-end	gap-8 items-center uppercase pr-16">
+      <a href="/" class={currentPath === '' ? 'active' : ''}>Home</a>
+      <a href="/reviews" class={currentPath === 'reviews' ? 'active' : ''}>Reviews</a>
+   </nav>
+</div>
