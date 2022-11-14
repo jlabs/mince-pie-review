@@ -25,7 +25,9 @@ const { title } = Astro.props;
 
     <body class="bg-mincepiebg-500 text-white">
         <Nav/>
-        <slot /> <!-- your content is injected here -->
+        <div class="w-1/2 flex justify-center">
+            <slot /> <!-- your content is injected here -->
+        </div>
         <Footer/>
     </body>
 </html>

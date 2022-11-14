@@ -8,10 +8,8 @@ const currentPath = pathname.slice(1); // remove the first "/"
    }
 </style>
 
-<div class="grid place-content-between grid-cols-2 m-4">
-   <div class="">
-      
-   </div>
+<div class="grid place-content-between grid-cols-2 w-4/5 m-auto">
+   <a href="/"><img src="/images/logo.jpg" class="rounded-full w-36" /></a>
    <nav class="text-white grid grid-flow-col	justify-end	gap-8 items-center uppercase pr-16">
       <a href="/" class={currentPath === '' ? 'active' : ''}>Home</a>
       <a href="/reviews" class={currentPath === 'reviews' ? 'active' : ''}>Reviews</a>
