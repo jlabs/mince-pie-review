@@ -1,0 +1,26 @@
+---
+import ReviewLayout from "../layouts/ReviewLayout.astro";
+import { reviews } from "../data/reviews";
+
+export async function getStaticPaths() {
+    const pages = reviews;
+
+    return pages.map(({ slug, id }) => {
+        return {
+            params: { slug },
+            props: { id }
+        }
+    })
+}
+
+const { slug } = Astro.params;
+const { id } = Astro.props;
+
+const review = reviews.filter(r => r.id == id)[0]
+---
+<ReviewLayout>
+  <h2 class="m-8 text-4xl">{review.brand} {review.range}</h2>
+  <div class="gap-8 w-full flex justify-center">
+
+  </div>
+</ReviewLayout>

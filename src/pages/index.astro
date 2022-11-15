@@ -4,42 +4,36 @@
 
 import BaseLayout from '../layouts/BaseLayout.astro';
 //import GridItem from '../components/SpecialistGridItem.astro';
+
+import {reviews} from '../data/reviews';
+
+const sortedReviews = reviews.sort((a,b) => Number(b.published) - Number(a.published))
 ---
 <!-- Below is your "component template." It's just HTML, but with
 	some magic sprinkled in to help you build great templates. -->
 <BaseLayout>
 	<section class="">
-		<h2>Latest Reviews</h2>
-		<div class="flex gap-8 justify-center w-full">
+		<h2 class="m-8 text-4xl">Latest Reviews</h2>
+		<div class="gap-8 w-full flex justify-center">
 			
-			<div class="max-w-sm rounded shadow-lg relative bg-pie-400">
-				<a href="/">
-					<img src="/images/logo.jpg" alt="" class="w-full">
-					<div class="px-6 py-4">
-						<div class="font-bold text-xl mb-2">Tesco Own</div>
-						<p class="text-gray-700 text-base mb-12">
-							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.
-						</p>
-					</div>
-					<div class="absolute -bottom-4 -right-2 rounded-full h-20 w-20 grid items-center text-center bg-pie-600 text-black font-black z-0">
-						8/20
-					</div>
-				</a>
-			</div>
-			<div class="max-w-sm rounded shadow-lg relative bg-pie-400">
-				<a href="/">
-					<img src="/images/logo.jpg" alt="" class="w-full">
-					<div class="px-6 py-4">
-						<div class="font-bold text-xl mb-2">Tesco Own</div>
-						<p class="text-gray-700 text-base mb-12">
-							Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.
-						</p>
-					</div>
-					<div class="absolute -bottom-4 -right-2 rounded-full h-20 w-20 grid items-center text-center bg-pie-600 text-black font-black z-0">
-						8/20
-					</div>
-				</a>
-			</div>
+			
+			{sortedReviews.slice(0,3).map((review) => 
+				<div class="max-w-sm rounded-md shadow-lg relative bg-pie-400">
+					<a href={review.slug}>
+						<img src={review.image} alt="" class="object-cover h-48 w-96">
+						<div class="px-6 py-4">
+							<div class="text-gray-700 font-bold text-xl mb-2">{review.brand} {review.range}</div>
+							<p class="text-gray-700 text-base mb-12">
+								{review.description}
+							</p>
+						</div>
+						<div class="absolute -bottom-4 -right-2 rounded-full h-20 w-20 grid items-center text-center bg-pie-600 text-black font-black z-0">
+							{review.rating.overal}/20
+						</div>
+					</a>
+				</div>				
+			)}
+
 		</div>
 	</section>
 </BaseLayout>
