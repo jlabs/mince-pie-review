@@ -6,6 +6,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 //import GridItem from '../components/SpecialistGridItem.astro';
 
 import {reviews} from '../data/reviews';
+import ReviewCard from '../layouts/components/ReviewCard.astro';
 
 const sortedReviews = reviews.sort((a,b) => Number(b.published) - Number(a.published))
 ---
@@ -16,22 +17,8 @@ const sortedReviews = reviews.sort((a,b) => Number(b.published) - Number(a.publi
 		<h2 class="m-8 text-4xl">Latest Reviews</h2>
 		<div class="gap-8 w-full flex justify-center">
 			
-			
 			{sortedReviews.slice(0,3).map((review) => 
-				<div class="w-96 rounded-md shadow-lg relative bg-pie-400">
-					<a href={review.slug}>
-						<img src={review.image} alt="" class="object-cover h-48 w-96 grayscale">
-						<div class="px-6 py-4">
-							<div class="text-gray-700 font-bold text-xl mb-2">{review.brand} {review.range}</div>
-							<p class="text-gray-700 text-base mb-12">
-								{review.description}
-							</p>
-						</div>
-						<div class="absolute -bottom-4 -right-2 rounded-full h-20 w-20 grid items-center text-center bg-pie-600 text-black font-black z-0">
-							{review.rating.overal}/20
-						</div>
-					</a>
-				</div>				
+				<ReviewCard review={review} />			
 			)}
 
 		</div>
