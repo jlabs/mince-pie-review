@@ -13,14 +13,16 @@ const sortedReviews = reviews.sort((a,b) => Number(b.published) - Number(a.publi
 <!-- Below is your "component template." It's just HTML, but with
 	some magic sprinkled in to help you build great templates. -->
 <BaseLayout>
-	<section class="">
-		<h2 class="m-8 text-4xl">Latest Reviews</h2>
-		<div class="gap-8 w-full flex justify-center">
-			
-			{sortedReviews.slice(0,3).map((review) => 
-				<ReviewCard review={review} />			
-			)}
-
-		</div>
-	</section>
+	<div class="w-4/5 m-auto">
+		<section class="">
+			<h2 class="m-8 text-4xl">Latest Reviews</h2>
+			<div class="gap-8 w-full flex justify-center">
+				
+				{sortedReviews.slice(0,3).map((review) => 
+					<ReviewCard review={review} />			
+				)}
+	
+			</div>
+		</section>
+	</div>
 </BaseLayout>
