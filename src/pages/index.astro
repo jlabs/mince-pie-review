@@ -18,9 +18,9 @@ const sortedReviews = reviews.sort((a,b) => Number(b.published) - Number(a.publi
 			
 			
 			{sortedReviews.slice(0,3).map((review) => 
-				<div class="max-w-sm rounded-md shadow-lg relative bg-pie-400">
+				<div class="w-96 rounded-md shadow-lg relative bg-pie-400">
 					<a href={review.slug}>
-						<img src={review.image} alt="" class="object-cover h-48 w-96">
+						<img src={review.image} alt="" class="object-cover h-48 w-96 grayscale">
 						<div class="px-6 py-4">
 							<div class="text-gray-700 font-bold text-xl mb-2">{review.brand} {review.range}</div>
 							<p class="text-gray-700 text-base mb-12">
