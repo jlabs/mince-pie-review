@@ -1,7 +1,7 @@
 ---
 const { review } = Astro.props;
 ---
-<div class="w-96 rounded-md shadow-lg relative bg-pie-400">
+<div class="w-96 md:w-80 rounded-md shadow-lg relative bg-pie-400">
     <a href={`/reviews/${review.slug}`}>
         <img src={review.image} alt="" class="object-cover h-48 w-96 grayscale">
         <div class="px-6 py-4">
@@ -11,7 +11,7 @@ const { review } = Astro.props;
             </p>
         </div>
         <div class="absolute -bottom-4 -right-2 rounded-full h-20 w-20 grid items-center text-center bg-pie-600 text-black font-black z-0">
-            {review.rating.overal}/20
+            {review.overal}/20
         </div>
     </a>
 </div>	
