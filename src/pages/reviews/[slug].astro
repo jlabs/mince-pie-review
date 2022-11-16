@@ -19,6 +19,8 @@ const { id } = Astro.props;
 const review = reviews.filter(r => r.id == id)[0]
 const ratings = review.rating;
 const published = new Date(review.published);
+
+//TODO: add the overal score somewhere
 ---
 <ReviewLayout>
   <div slot='hero' class='h-96 w-full overflow-hidden relative'>

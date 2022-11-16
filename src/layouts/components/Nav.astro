@@ -10,7 +10,11 @@ console.log(currentPath)
 </style>
 
 <div class="grid place-content-between grid-cols-2 w-4/5 m-auto">
-   <a href="/"><img src="/images/logo.jpg" class="rounded-full w-36" /></a>
+   {// TODO: make the next next to the logo}
+      <a href="/">
+         <img src="/images/logo.jpg" class="rounded-full w-36" />
+         <p class='inline-block'>Mince Pie Review</p>
+      </a>   
    <nav class="text-white grid grid-flow-col	justify-end	gap-8 items-center uppercase pr-16">
       <a href="/" class={currentPath === '' ? 'active' : ''}>Home</a>
       <a href="/reviews" class={currentPath === 'reviews' ? 'active' : ''}>Reviews</a>
