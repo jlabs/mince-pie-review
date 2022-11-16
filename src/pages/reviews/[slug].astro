@@ -17,13 +17,24 @@ const { slug } = Astro.params;
 const { id } = Astro.props;
 
 const review = reviews.filter(r => r.id == id)[0]
+const ratings = review.rating;
 ---
 <ReviewLayout>
-  <h2 class="m-8 text-4xl">{review.brand} {review.range}</h2>
-  <div class="gap-8 w-full flex justify-center">
-    ratings here
+  <div slot='hero' class='h-96 w-full overflow-hidden relative'>
+    <div class="grid place-content-center absolute w-full h-full">
+      <h2 class="rounded-full m-8 text-4xl bg-mincepiebg-500 p-8">{review.brand} {review.range}</h2>
+    </div>
+    <img src={review.image} class="object-none object-center" />
   </div>
-  <div class="gap-8 w-full flex justify-center">
-    description
+
+  <div class="gap-8 w-full flex justify-center my-8">
+    {Object.keys(ratings).map((rating) =>
+      <div class='bg-pie-600 rounded-full p-2 px-4 uppercase text-mincepiebg-500 font-bold'>
+        {rating} : {ratings[rating]}
+      </div>
+    )}
+  </div>
+  <div class="gap-8 w-full flex justify-center text-xl mt-8">
+    {review.description}
   </div>
 </ReviewLayout>
