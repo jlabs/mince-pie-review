@@ -2,7 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 <BaseLayout>
-    hero
+    <slot name='hero' />
     <div class="w-4/5 m-auto">
         <slot />
     </div>
