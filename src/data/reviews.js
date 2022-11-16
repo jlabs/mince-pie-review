@@ -14,7 +14,7 @@ export const reviews = [
 		rating: {
 			overal: 13.5
 		},
-        slug: 'reviews/tesco'
+        slug: 'tesco'
 	},
 	{
 		id: 1,
@@ -27,6 +27,6 @@ export const reviews = [
 		rating: {
 			overal: 8
 		},
-        slug: 'reviews/mr-kipling'
+        slug: 'mr-kipling'
 	}
 ]
