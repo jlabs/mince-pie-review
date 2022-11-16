@@ -18,6 +18,7 @@ const { id } = Astro.props;
 
 const review = reviews.filter(r => r.id == id)[0]
 const ratings = review.rating;
+const published = new Date(review.published);
 ---
 <ReviewLayout>
   <div slot='hero' class='h-96 w-full overflow-hidden relative'>
@@ -34,7 +35,22 @@ const ratings = review.rating;
       </div>
     )}
   </div>
-  <div class="gap-8 w-full flex justify-center text-xl mt-8">
+  <div class="gap-8 grid justify-center text-xl mt-8 m-auto w-1/2">
     {review.description}
+    <div class="bg-pie-600 rounded-lg overflow-hidden">
+      <div class="grid grid-cols-2">
+        <dl class='p-2 text-mincepiebg-500'>
+          <dt>Published</dt>
+          <dd class='ml-4'>{published.toString()}</dd>
+          <dt>Overall Rating</dt>
+          <dd class='ml-4'>{review.overal} / 20</dd>
+          <dt>Reviewers</dt>
+          <dd class='ml-4'>{review.reviewers}</dd>
+          <dt>Price</dt>
+          <dd class='ml-4'>£{review.price}</dd>
+        </dl>
+        <img src={review.image} alt="" class='h-full object-cover'>
+      </div>
+    </div>
   </div>
 </ReviewLayout>
