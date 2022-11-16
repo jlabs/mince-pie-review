@@ -3,10 +3,26 @@
 // is your "component front matter". It never runs in the browser.
 
 import BaseLayout from '../layouts/BaseLayout.astro';
-import GridItem from '../components/SpecialistGridItem.astro';
+//import GridItem from '../components/SpecialistGridItem.astro';
+
+import {reviews} from '../data/reviews';
+import ReviewCard from '../layouts/components/ReviewCard.astro';
+
+const sortedReviews = reviews.sort((a,b) => Number(b.published) - Number(a.published))
 ---
 <!-- Below is your "component template." It's just HTML, but with
 	some magic sprinkled in to help you build great templates. -->
-<BaseLayout title='Reviews'>
-	Reviews
+<BaseLayout>
+	<div class="w-4/5 m-auto">
+		<section class="">
+			<h2 class="m-8 text-4xl">All Reviews</h2>
+			<div class="gap-8 w-full flex justify-center flex-wrap">
+				
+				{sortedReviews.map((review) => 
+					<ReviewCard review={review} />			
+				)}
+	
+			</div>
+		</section>
+	</div>
 </BaseLayout>
