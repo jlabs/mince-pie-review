@@ -16,7 +16,7 @@ export function getStaticPaths() {
 const { slug } = Astro.params;
 const { id } = Astro.props;
 
-const review = reviews.filter(r => r.id == id)[0]
+const review = reviews.filter(r => r.slug == slug)[0]
 const ratings = review.rating;
 const published = new Date(review.published);
 
@@ -40,7 +40,7 @@ const published = new Date(review.published);
   <div class="gap-8 grid justify-center text-xl mt-8 m-auto w-1/2">
     {review.description}
     <div class="bg-pie-600 rounded-lg overflow-hidden">
-      <div class="grid grid-cols-2">
+      <div class="grid grid-cols-3 text-sm">
         <dl class='p-2 text-mincepiebg-500'>
           <dt>Published</dt>
           <dd class='ml-4'>{published.toString()}</dd>
@@ -51,7 +51,7 @@ const published = new Date(review.published);
           <dt>Price</dt>
           <dd class='ml-4'>£{review.price}</dd>
         </dl>
-        <img src={review.image} alt="" class='h-full object-cover'>
+        <img src={review.image} alt="" class='h-full object-cover col-start-2 col-span-2'>
       </div>
     </div>
   </div>
