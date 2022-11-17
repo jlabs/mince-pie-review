@@ -16,7 +16,7 @@ const sortedReviews = reviews.sort((a,b) => Number(b.published) - Number(a.publi
 	<div class="w-4/5 m-auto">
 		<section class="">
 			<h2 class="m-8 text-4xl">Latest Reviews</h2>
-			<div class="gap-8 w-full flex justify-center">
+			<div class="gap-8 w-full flex flex-wrap justify-center">
 				
 				{sortedReviews.slice(0,3).map((review) => 
 					<ReviewCard review={review} />			
