@@ -31,7 +31,7 @@ const published = new Date(review.published);
   </div>
 
 
-  <div class="gap-8 w-full flex flex-wrap justify-center my-8">
+  <div class="gap-8 w-full flex flex-wrap justify-start md:justify-center my-8 mx-4 md:mx-0">
     {Object.keys(ratings).map((rating) =>
       <div class='bg-pie-600 rounded-full p-2 px-4 uppercase text-mincepiebg-500 font-bold'>
         {rating} : {ratings[rating]}
