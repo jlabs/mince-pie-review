@@ -68,7 +68,7 @@ export const reviews = [
 		range: 'Taste The Difference',
 		image: '/images/Mr Kipling Default.jpg',
 		published: new Date("2022-11-02"),
-		description: 'At £2.25 these are a whole pound dearer. Worth it.  A potential champion here with a massive 17/20. Delicious, textured filling and proper pastry that didn\'t crumble. We loved the actual icing sugar sprinkling - one taster remarked \'It looks like snowy Christmas\'. ',
+		description: 'At £2.25 these are a whole pound dearer than their counterpart. Worth it.  A potential champion here with a massive 17/20. Delicious, textured filling and proper pastry that didn\'t crumble. We loved the actual icing sugar sprinkling - one taster remarked \'It looks like snowy Christmas\'. ',
 		overal: 17,
 		rating: {
 			pastry: 0,
