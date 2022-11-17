@@ -1,7 +1,6 @@
 ---
 const pathname = new URL(Astro.request.url).pathname;
 const currentPath = pathname.slice(1).split('/')[0]; // remove the first "/"
-console.log(currentPath)
 ---
 <style>
    .active, a:hover {
@@ -9,14 +8,12 @@ console.log(currentPath)
    }
 </style>
 
-<div class="grid place-content-between grid-cols-2 w-4/5 m-auto">
-   {// TODO: make the next next to the logo}
-      <a href="/">
-         <img src="/images/logo.jpg" class="rounded-full w-36" />
-         <p class='inline-block'>Mince Pie Review</p>
-      </a>   
-   <nav class="text-white grid grid-flow-col	justify-end	gap-8 items-center uppercase pr-16">
-      <a href="/" class={currentPath === '' ? 'active' : ''}>Home</a>
-      <a href="/reviews" class={currentPath === 'reviews' ? 'active' : ''}>Reviews</a>
+<div class="grid sm:grid-flow-col sm:w-4/5 justify-center sm:place-content-between w-full m-auto">
+   <a href="/" class='m-auto'>
+      <img src="/images/logo.jpg" class="rounded-full w-36" />
+   </a>   
+   <nav class="text-white grid grid-flow-col	gap-8 sm:items-center uppercase mb-4 sm:mb-0 sm:pr-16">
+      <a href="/" class={currentPath === '' ? 'active' : ''} title="Home">Home</a>
+      <a href="/reviews" class={currentPath === 'reviews' ? 'active' : ''} title="Reviews">Reviews</a>
    </nav>
 </div>
