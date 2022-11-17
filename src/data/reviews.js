@@ -105,7 +105,7 @@ export const reviews = [
 	},
 	{
 		brand: 'Waitrose & Partners',
-		range: 'Taste The Difference',
+		range: '',
 		image: '/images/MnS Waitrose.jpg',
 		published: new Date("2022-11-10"),
 		description: 'Nice pastry, filling not bad, great value at £1.68, really good-looking pies. Taster\'s comment: "The box looks like a present',
