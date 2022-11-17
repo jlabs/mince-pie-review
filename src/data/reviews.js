@@ -46,7 +46,7 @@ export const reviews = [
 	{
 		brand: 'Sainsbury\'s',
 		range: '',
-		image: '/images/Mr Kipling Default.jpg',
+		image: '/images/Sainsburys.jpeg',
 		published: new Date("2022-11-02"),
 		description: 'Theses are bad. 7.5/20 and that\'s being generous.  Boring, tasteless and textureless. No plastic on the box itself, but a weak design on the outside.',
 		overal: 7.5,
@@ -66,7 +66,7 @@ export const reviews = [
 	{
 		brand: 'Sainsbury\'s',
 		range: 'Taste The Difference',
-		image: '/images/Mr Kipling Default.jpg',
+		image: '/images/Sainsburys.jpeg',
 		published: new Date("2022-11-02"),
 		description: 'At £2.25 these are a whole pound dearer than their counterpart. Worth it.  A potential champion here with a massive 17/20. Delicious, textured filling and proper pastry that didn\'t crumble. We loved the actual icing sugar sprinkling - one taster remarked \'It looks like snowy Christmas\'. ',
 		overal: 17,
@@ -82,5 +82,45 @@ export const reviews = [
 		served: 'Room Temperature',
 		side: '',
 		price: 2.25,
+	},
+	{
+		brand: 'M&S',
+		range: '',
+		image: '/images/MnS Waitrose.jpg',
+		published: new Date("2022-11-10"),
+		description: 'Good pastry, very pricy at £2.00, and we didn\'t like the hole in the top of the pie. For... reasons. Look, if you must know we thought it looked like a cat\'s backside, OK? And that can\'t be unseen.  ',
+		overal: 13,
+		rating: {
+			pastry: 0,
+			filling: 0,
+			presentation: 0,
+			value: 0
+		},
+        slug: 'm-and-s',
+		agregregated: true,
+		reviewers: 5,
+		served: 'Room Temperature',
+		side: '',
+		price: 2.00,
+	},
+	{
+		brand: 'Waitrose & Partners',
+		range: 'Taste The Difference',
+		image: '/images/MnS Waitrose.jpg',
+		published: new Date("2022-11-10"),
+		description: 'Nice pastry, filling not bad, great value at £1.68, really good-looking pies. Taster\'s comment: "The box looks like a present',
+		overal: 15.5,
+		rating: {
+			pastry: 0,
+			filling: 0,
+			presentation: 0,
+			value: 0
+		},
+        slug: 'waitrose',
+		agregregated: true,
+		reviewers: 5,
+		served: 'Room Temperature',
+		side: '',
+		price: 1.68,
 	},
 ]
