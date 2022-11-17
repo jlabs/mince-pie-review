@@ -27,17 +27,18 @@ const published = new Date(review.published);
     <div class="grid place-content-center absolute w-full h-full">
       <h2 class="rounded-full m-8 text-4xl bg-mincepiebg-500 p-8">{review.brand} {review.range}</h2>
     </div>
-    <img src={review.image} class="object-none object-center" />
+    <img src={review.image} class=" object-none object-center min-h-full" />
   </div>
 
-  <div class="gap-8 w-full flex justify-center my-8">
+
+  <div class="gap-8 w-full flex flex-wrap justify-center my-8">
     {Object.keys(ratings).map((rating) =>
       <div class='bg-pie-600 rounded-full p-2 px-4 uppercase text-mincepiebg-500 font-bold'>
         {rating} : {ratings[rating]}
       </div>
     )}
   </div>
-  <div class="gap-8 grid justify-center text-xl mt-8 m-auto w-1/2">
+  <div class="gap-8 grid justify-center text-xl mt-8 m-auto w-5/6">
     {review.description}
     <div class="bg-pie-600 rounded-lg overflow-hidden">
       <div class="grid grid-cols-3 text-sm">
