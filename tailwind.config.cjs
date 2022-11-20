@@ -11,6 +11,9 @@ module.exports = {
 					400: '#f2ddbf',
 					500: '#edd3b1',
 					600: '#ddc29b'
+				},
+				foil: {
+					500: '#B8B2A7'
 				}
 			}
 		},
