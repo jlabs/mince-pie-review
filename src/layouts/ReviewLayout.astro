@@ -1,7 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+const { title } = Astro.props;
 ---
-<BaseLayout>
+<BaseLayout title={title}>
     <slot name='hero' />
     <div class="w-full md:w-4/5 max-w-screen-xl m-auto">
         <slot />

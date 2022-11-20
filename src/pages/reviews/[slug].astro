@@ -19,13 +19,13 @@ const { id } = Astro.props;
 
 const review = reviews.filter(r => r.slug == slug)[0]
 const ratings = review.rating;
-
+const title = review.brand + ' ' + review.range;
 //TODO: add the overal score somewhere
 ---
-<ReviewLayout>
+<ReviewLayout title={title}>
   <div slot='hero' class='h-96 w-full overflow-hidden relative'>
     <div class="grid place-content-center absolute w-full h-full">
-      <h1 class="rounded-full m-8 text-4xl bg-mincepiebg-500 p-8">{review.brand} {review.range}</h1>
+      <h1 class="rounded-full m-8 text-4xl bg-mincepiebg-500 p-8">{title}</h1>
     </div>
     <img src={review.image} class="object-none object-center min-h-full" />
   </div>
