@@ -8,20 +8,39 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import {reviews} from '../data/reviews';
 import ReviewCard from '../layouts/components/ReviewCard.astro';
 
-const sortedReviews = reviews.sort((a,b) => Number(b.published) - Number(a.published))
+const sortedReviews = reviews.sort((a,b) => Number(b.published) - Number(a.published));
+const topReviews = reviews.sort((a,b) => Number(b.overal) - Number(a.overal));
+const notReviews = reviews.sort((a,b) => Number(a.overal) - Number(b.overal));
 ---
 <!-- Below is your "component template." It's just HTML, but with
 	some magic sprinkled in to help you build great templates. -->
 <BaseLayout>
 	<div class="w-4/5 m-auto">
 		<section class="">
-			<h2 class="m-8 text-4xl">Latest Reviews</h2>
-			<div class="gap-8 w-full flex flex-wrap justify-center">
-				
+			<h2 class="m-8 mb-0 text-4xl">Latest Reviews</h2>
+			<small class='ml-8'>The most recent reviews by the team and contributors</small>
+			<div class="gap-8 w-full flex flex-wrap justify-center mt-4">				
 				{sortedReviews.slice(0,3).map((review) => 
 					<ReviewCard review={review} />			
-				)}
-	
+				)}	
+			</div>
+		</section>
+		<section>
+			<h2 class="m-8 mb-0 text-4xl">Top Pies</h2>
+			<small class='ml-8'>Our top 3 pies we've experienced</small>
+			<div class="gap-8 w-full flex flex-wrap justify-center mt-4">				
+				{topReviews.slice(0,3).map((review) => 
+					<ReviewCard review={review} />			
+				)}	
+			</div>
+		</section>
+		<section>
+			<h2 class="m-8 mb-0 text-4xl">Not So Top Pies</h2>
+			<small class='ml-8'>All a matter of a pie based opinion</small>
+			<div class="gap-8 w-full flex flex-wrap justify-center mt-4">				
+				{notReviews.slice(0,3).map((review) => 
+					<ReviewCard review={review} />			
+				)}	
 			</div>
 		</section>
 	</div>
