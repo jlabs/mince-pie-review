@@ -9,12 +9,11 @@ const currentPath = pathname.slice(1).split('/')[0]; // remove the first "/"
 </style>
 
 <div class="grid sm:grid-flow-col sm:w-4/5 justify-center sm:place-content-between w-full m-auto">
-   <a href="/" class='m-auto'>
-      <img src="/images/logo.jpg" class="rounded-full w-36" />
+   <a href="/" class='m-auto' title='Link to the homepage'>
+      <img src="/images/logo.jpg" class="rounded-full w-36" alt="Logo link to homepage" />
    </a>   
    <nav class="text-white grid grid-flow-col	gap-8 sm:items-center uppercase mb-4 sm:mb-0 sm:pr-16">
-      <a href="/" class={currentPath === '' ? 'active' : ''} title="Home">Home</a>
       <a href="/reviews" class={currentPath === 'reviews' ? 'active' : ''} title="Reviews">Reviews</a>
-      <a href="/about" class={currentPath === 'about' ? 'active' : ''} title="about">About</a>
+      <a href="/about" class={currentPath === 'about' ? 'active' : ''} title="About">About</a>
    </nav>
 </div>
