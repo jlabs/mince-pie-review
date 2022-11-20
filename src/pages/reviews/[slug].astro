@@ -18,8 +18,18 @@ const { slug } = Astro.params;
 const { id } = Astro.props;
 
 const review = reviews.filter(r => r.slug == slug)[0]
-const ratings = review.rating;
+const stats:String[] = [];
+Object.keys(review.rating).map((rating) => {
+  stats.push(
+    { 
+      key : rating,
+      value: review.rating[rating]
+    }
+  )
+})
+
 const title = review.brand + ' ' + review.range;
+
 //TODO: add the overal score somewhere
 ---
 <ReviewLayout title={title}>
@@ -32,9 +42,9 @@ const title = review.brand + ' ' + review.range;
 
 
   <div class="gap-2 md:gap-8 flex flex-wrap justify-center mx-4 my-8 sm:mx-4 md:mx-0">
-    {Object.keys(ratings).map((rating) =>
+    {stats.map((stat) =>
       <div class='bg-pie-600 w-full py-2 px-4 text-center md:text-left md:w-auto rounded-full p-2 uppercase text-mincepiebg-500 font-bold'>
-        {rating} : {ratings[rating]}
+        {stat.key} : {stat.value}
       </div>
     )}
   </div>

@@ -1,7 +1,3 @@
-const slug = (brand) => {
-    return brand
-}
-
 export const reviews = [
 	{
 		brand: 'Tesco',
