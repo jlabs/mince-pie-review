@@ -150,4 +150,25 @@ export const reviews = [
 		price: 1.68,
 		round: 1
 	},
+	{
+		brand: 'Morrisons',
+		range: 'The Best',
+		image: '/images/Morrisons The Best.jpg',
+		published: new Date("2022-11-18"),
+		description: 'Friday is pie day. We ate Morrisons \'The best\' deep fill pies, and we liked them. With a score of 16.5 / 20 they are just a fraction away from the top spot, still occupied by Sainsbury\'s (at the time of this review). We loved the pastry here- only pie so far to get top marks in that category. Taster\'s comments on the presentation: "This is what it would look like if Apple made mince pies."',
+		overal: 16.5,
+		rating: {
+			pastry: 5,
+			filling: 0,
+			presentation: 0,
+			value: 0
+		},
+        slug: 'morrisons-the-best',
+		agregregated: true,
+		reviewers: 4,
+		served: 'Room Temperature',
+		side: '',
+		price: 1.75,
+		round: 1
+	},
 ]
