@@ -3,19 +3,14 @@ const pathname = new URL(Astro.request.url).pathname;
 const currentPath = pathname.slice(1).split('/')[0]; // remove the first "/"
 const { heroTitle } = Astro.props;
 ---
-<style>
-   .active, a:hover {
-      color: orange;
-   }
-</style>
-
 <div class="grid sm:grid-flow-col sm:w-4/5 align-middle justify-center sm:place-content-between w-full m-auto">
    <a href="/" class='m-auto' title='Link to the homepage'>
       <img src="/images/logo.jpg" class="rounded-full w-36" alt="Logo link to homepage" />
    </a>   
    <h1 class='m-auto uppercase text-2xl lg:text-4xl mx-4'>{heroTitle}</h1>
-   <nav class="text-white grid grid-flow-col	gap-8 sm:items-center justify-center uppercase mb-4 sm:mb-0 sm:pr-16">
-      <a href="/reviews" class={currentPath === 'reviews' ? 'active' : ''} title="Reviews">Reviews</a>
-      <a href="/about" class={currentPath === 'about' ? 'active' : ''} title="About">About</a>
+   <nav class="text-white grid grid-flow-col	gap-4 sm:items-center justify-center uppercase mb-4 sm:mb-0 sm:pr-16">
+      <a href="/reviews" class={currentPath === 'reviews' ? '' : 'bg-pie-400 text-mincepiebg-500 p-2 font-medium rounded-full'} title="Reviews">Reviews</a>
+      <a href="/about" class={currentPath === 'about' ? '' : 'bg-pie-400 text-mincepiebg-500 p-2 font-medium rounded-full'} title="About">About</a>
+      <a href="/suggest" class={currentPath === 'suggest' ? '' : 'bg-pie-400 text-mincepiebg-500 p-2 font-medium rounded-full'} title="About">Suggest A Pie</a>
    </nav>
 </div>

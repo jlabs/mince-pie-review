@@ -17,7 +17,7 @@ const notReviews = reviews.sort((a,b) => Number(a.overal) - Number(b.overal));
 <BaseLayout heroTitle='Mince Pie Review'>
 	<div class="w-4/5 m-auto">
 		<section class="">
-			<h2 class="m-8 mb-0 text-4xl">Latest Reviews</h2>
+			<h2 class="ml-8 mb-0 text-4xl">Latest Reviews</h2>
 			<small class='ml-8'>The most recent reviews by the team and contributors</small>
 			<div class="gap-8 w-full flex flex-wrap justify-center mt-4">				
 				{sortedReviews.slice(0,3).map((review) => 
