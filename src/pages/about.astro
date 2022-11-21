@@ -4,23 +4,25 @@
 
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
-<!-- Below is your "component template." It's just HTML, but with
-	some magic sprinkled in to help you build great templates. -->
-<BaseLayout title='About' heroTitle='About'>
-	<div class="w-4/5 m-auto">
-		<section class="">
-			<div class="w-1/2 m-auto">
-				<p class='mb-4'>
-					What can we say, it's a site about reviewing mince pies ... what else is there to explain?
-				</p>
-				<p>
-					The history is a little vague as the original creators of this here challenge have gradually filtered off to new ventures.
-					So the challenge has be bestowed upon the current team to carry on the mince pie torch - without eating or rating it.
-				</p>
-				<p class='mb-4'>
-					We've created this site because that's the thing we do any way, and also to have a little record for our festive fun.
-				</p>
-			</div>
-		</section>
-	</div>
+<BaseLayout title='About' heroTitle='About This Here Site'>
+	<section class="w-1/2 m-auto">
+		<h2 class='text-xl uppercase font-bold'>What's this about?</h2>	
+		<p class='mb-4'>
+			What can we say, it's a site about reviewing mince pies ... what else is there to explain?
+		</p>
+		<h2 class='text-xl uppercase font-bold'>Why is this about?</h2>
+		<p>
+			The history is a little vague as the original creators of this here challenge have gradually filtered off to new ventures.
+			So the challenge has be bestowed upon the current team to carry on the mince pie torch - without eating or rating it.
+		</p>
+		<p class='mb-4'>
+			We've created this site because that's the thing we do any way, and also to have a little record for our festive fun.
+		</p>		
+	</section>
+	<section class='w-1/2 m-auto'>
+		<h2 class="text-xl uppercase font-bold">With thanks</h2>
+		<p class="mb-4">
+			This site is built on <a href="https://astro.build/" target="_blank" class="bg-pie-400 text-mincepiebg-500 p-1 font-medium">Astro</a> - it's quick, it's light, and it's quick. For the 'look' of the site we're using the popular <a href="https://tailwindcss.com" target="_blank" class="bg-pie-400 text-mincepiebg-500 p-1 font-medium">TailwindCSS</a>. The social icons were sourced from <a href="https://icons8.com/" target="_blank" class="bg-pie-400 text-mincepiebg-500 p-1 font-medium">Icons8</a>
+		</p>
+	</section>
 </BaseLayout>
