@@ -1,16 +1,12 @@
 ---
-// Welcome to Astro! Everything between these triple-dash code fences
-// is your "component front matter". It never runs in the browser.
-
 import BaseLayout from '../layouts/BaseLayout.astro';
-//import GridItem from '../components/SpecialistGridItem.astro';
 
 import {reviews} from '../data/reviews';
 import ReviewCard from '../layouts/components/ReviewCard.astro';
 
-const sortedReviews = reviews.sort((a,b) => Number(b.published) - Number(a.published));
-const topReviews = reviews.sort((a,b) => Number(b.overal) - Number(a.overal));
-const notReviews = reviews.sort((a,b) => Number(a.overal) - Number(b.overal));
+const sortedReviews = reviews.sort((a,b) => b.published.getTime() - a.published.getTime()).slice(0,3);
+const topReviews = reviews.sort((a,b) => b.overal - a.overal).slice(0,3);
+const notReviews = reviews.sort((a,b) => a.overal - b.overal).slice(0,3);
 ---
 <!-- Below is your "component template." It's just HTML, but with
 	some magic sprinkled in to help you build great templates. -->
@@ -20,7 +16,7 @@ const notReviews = reviews.sort((a,b) => Number(a.overal) - Number(b.overal));
 			<h2 class="ml-8 mb-0 text-4xl">Latest Reviews</h2>
 			<small class='ml-8'>The most recent reviews by the team and contributors</small>
 			<div class="gap-8 w-full flex flex-wrap justify-center mt-4">				
-				{sortedReviews.slice(0,3).map((review) => 
+				{sortedReviews.map((review) => 
 					<ReviewCard review={review} />			
 				)}	
 			</div>
@@ -29,7 +25,7 @@ const notReviews = reviews.sort((a,b) => Number(a.overal) - Number(b.overal));
 			<h2 class="m-8 mb-0 text-4xl">Top Pies</h2>
 			<small class='ml-8'>Our top 3 pies we've experienced</small>
 			<div class="gap-8 w-full flex flex-wrap justify-center mt-4">				
-				{topReviews.slice(0,3).map((review) => 
+				{topReviews.map((review) => 
 					<ReviewCard review={review} />			
 				)}	
 			</div>
@@ -38,7 +34,7 @@ const notReviews = reviews.sort((a,b) => Number(a.overal) - Number(b.overal));
 			<h2 class="m-8 mb-0 text-4xl">Not So Top Pies</h2>
 			<small class='ml-8'>All a matter of a pie based opinion</small>
 			<div class="gap-8 w-full flex flex-wrap justify-center mt-4">				
-				{notReviews.slice(0,3).map((review) => 
+				{notReviews.map((review) => 
 					<ReviewCard review={review} />			
 				)}	
 			</div>
