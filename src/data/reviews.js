@@ -7,17 +7,17 @@ export const reviews = [
 		description: 'Good flavour, although a lot of pastry.  Good value.',
 		overal: 13.5,
 		rating: {
-			pastry: 0,
-			filling: 0,
-			presentation: 0,
-			value: 0
+			pastry: 3.5,
+			filling: 3,
+			presentation: 3,
+			value: 4
 		},
         slug: 'tesco',
 		agregregated: true,
 		reviewers: 5,
 		served: 'Room Temperature',
 		side: '',
-		price: 0.00,
+		price: 1.09,
 		round: 1
 	},
 	{
@@ -28,17 +28,17 @@ export const reviews = [
 		description: 'Very disappointing, flavourless paste of a filling.  Nice-looking box but why the plastic? We don\'t want plastic.',
 		overal: 8,
 		rating: {
-			pastry: 0,
-			filling: 0,
-			presentation: 0,
-			value: 0
+			pastry: 1,
+			filling: 2,
+			presentation: 3,
+			value: 2
 		},
         slug: 'mr-kipling',
 		agregregated: true,
 		reviewers: 5,
 		served: 'Room Temperature',
 		side: '',
-		price: 0.00,
+		price: 1.85,
 		round: 1
 	},
 	{
@@ -47,12 +47,12 @@ export const reviews = [
 		image: '/images/Sainsburys.jpeg',
 		published: new Date("2022-11-02"),
 		description: 'Theses are bad. 7.5/20 and that\'s being generous.  Boring, tasteless and textureless. No plastic on the box itself, but a weak design on the outside.',
-		overal: 7.5,
+		overal: 8,
 		rating: {
-			pastry: 0,
-			filling: 0,
-			presentation: 0,
-			value: 0
+			pastry: 1,
+			filling: 2,
+			presentation: 1,
+			value: 4
 		},
         slug: 'sainsburys',
 		agregregated: true,
@@ -70,10 +70,10 @@ export const reviews = [
 		description: 'At £2.25 these are a whole pound dearer than their counterpart. Worth it.  A potential champion here with a massive 17/20. Delicious, textured filling and proper pastry that didn\'t crumble. We loved the actual icing sugar sprinkling - one taster remarked \'It looks like snowy Christmas\'. ',
 		overal: 17,
 		rating: {
-			pastry: 0,
-			filling: 0,
-			presentation: 0,
-			value: 0
+			pastry: 4,
+			filling: 4,
+			presentation: 5,
+			value: 4
 		},
         slug: 'sainsburys-taste-the-difference',
 		agregregated: true,
@@ -112,10 +112,10 @@ export const reviews = [
 		description: 'Good pastry, very pricy at £2.00, and we didn\'t like the hole in the top of the pie. For... reasons. Look, if you must know we thought it looked like a cat\'s backside, OK? And that can\'t be unseen.  ',
 		overal: 13,
 		rating: {
-			pastry: 0,
-			filling: 0,
-			presentation: 0,
-			value: 0
+			pastry: 4,
+			filling: 3.75,
+			presentation: 2.25,
+			value: 3
 		},
         slug: 'm-and-s',
 		agregregated: true,
@@ -133,10 +133,10 @@ export const reviews = [
 		description: 'Nice pastry, filling not bad, great value at £1.68, really good-looking pies. Taster\'s comment: "The box looks like a present',
 		overal: 15.5,
 		rating: {
-			pastry: 0,
-			filling: 0,
-			presentation: 0,
-			value: 0
+			pastry: 4,
+			filling: 3,
+			presentation: 4,
+			value: 4.5
 		},
         slug: 'waitrose',
 		agregregated: true,
@@ -155,11 +155,32 @@ export const reviews = [
 		overal: 16.5,
 		rating: {
 			pastry: 5,
-			filling: 0,
-			presentation: 0,
-			value: 0
+			filling: 4.5,
+			presentation: 3,
+			value: 4
 		},
         slug: 'morrisons-the-best',
+		agregregated: true,
+		reviewers: 4,
+		served: 'Room Temperature',
+		side: '',
+		price: 1.75,
+		round: 1
+	},
+	{
+		brand: 'Lidl',
+		range: 'Deluxe',
+		image: '/images/logo.jpg',
+		published: new Date("2022-11-22"),
+		description: '',
+		overal: 10,
+		rating: {
+			pastry: 1,
+			filling: 3,
+			presentation: 3,
+			value: 3
+		},
+        slug: 'lidl-deluxe',
 		agregregated: true,
 		reviewers: 4,
 		served: 'Room Temperature',
