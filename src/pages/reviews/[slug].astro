@@ -1,23 +1,25 @@
 ---
 import ReviewLayout from "../../layouts/ReviewLayout.astro";
-import { reviews } from "../../data/reviews";
 import ReviewSummary from "../../layouts/components/ReviewSummary.astro";
 
-export function getStaticPaths() {
-    const pages = reviews;
+import { getAllReviews } from '../../lib/api.js';
+import { urlForImage } from '../../lib/imageBuilder.js';
 
-    return pages.map(({ slug, id }) => {
-        return {
-            params: { slug },
-            props: { id }
-        }
-    })
+export async function getStaticPaths() {
+    const allReviews = await getAllReviews();
+
+    return allReviews.map(review => ({
+      params: {
+        slug: review.slug.current
+      },
+      props: {
+        review
+      }
+    }))
 }
 
-const { slug } = Astro.params;
-const { id } = Astro.props;
+const { review } = Astro.props;
 
-const review = reviews.filter(r => r.slug == slug)[0]
 const stats:String[] = [];
 Object.keys(review.rating).map((rating) => {
   stats.push(
@@ -37,7 +39,7 @@ const title = review.brand + ' ' + review.range;
     <div class="grid place-content-center absolute w-full h-full">
       <h1 class="rounded-full m-8 text-4xl bg-mincepiebg-500 p-8">{title}</h1>
     </div>
-    <img src={review.image} class="object-none object-center min-h-full" />
+    <img src={urlForImage(review.image)} class="object-none object-center min-h-full" />
   </div>
 
 
@@ -49,7 +51,7 @@ const title = review.brand + ' ' + review.range;
     )}
   </div>
   <div class="md:w-5/6 md:m-auto lg:w-1/2 mx-4 text-center bg-pie-600 rounded-full text-mincepiebg-500 py-2 font-bold text-2xl">
-    {review.overal} / 20
+    {review.overall} / 20
   </div>
   <div class="gap-8 grid justify-center text-xl mt-8 m-auto w-5/6">
     {review.description}

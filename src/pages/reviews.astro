@@ -1,14 +1,11 @@
 ---
-// Welcome to Astro! Everything between these triple-dash code fences
-// is your "component front matter". It never runs in the browser.
-
 import BaseLayout from '../layouts/BaseLayout.astro';
-//import GridItem from '../components/SpecialistGridItem.astro';
-
-import {reviews} from '../data/reviews';
 import ReviewCard from '../layouts/components/ReviewCard.astro';
 
-const sortedReviews = reviews.sort((a,b) => Number(b.published) - Number(a.published))
+import { getAllReviews } from '../lib/api';
+const reviews = await getAllReviews();
+
+const sortedReviews = reviews.sort((a,b) => new Date(b.published).getTime() - new Date(a.published).getTime())
 ---
 <!-- Below is your "component template." It's just HTML, but with
 	some magic sprinkled in to help you build great templates. -->

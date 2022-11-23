@@ -1,12 +1,17 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-import {reviews} from '../data/reviews';
+//import {reviews} from '../data/reviews';
 import ReviewCard from '../layouts/components/ReviewCard.astro';
 
-const sortedReviews = reviews.sort((a,b) => b.published.getTime() - a.published.getTime()).slice(0,3);
-const topReviews = reviews.sort((a,b) => b.overal - a.overal).slice(0,3);
-const notReviews = reviews.sort((a,b) => a.overal - b.overal).slice(0,3);
+import { getAllReviews } from '../lib/api';
+
+const reviews = await getAllReviews();
+console.log(reviews[0])
+
+const sortedReviews = reviews.sort((a,b) => new Date(b.published).getTime() - new Date(a.published).getTime()).slice(0,3);
+const topReviews = reviews.sort((a,b) => b.overall - a.overall).slice(0,3);
+const notReviews = reviews.sort((a,b) => a.overall - b.overall).slice(0,3);
 ---
 <!-- Below is your "component template." It's just HTML, but with
 	some magic sprinkled in to help you build great templates. -->

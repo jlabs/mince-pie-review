@@ -1,23 +1,28 @@
 ---
 const { review } = Astro.props;
 
-const shortDesc = review.description.slice(0, 80);
-const splitDesc = shortDesc.split(' ');
-const throwAway = splitDesc.pop();
-const description = splitDesc.join(' ');
-
+import { urlForImage } from '../../lib/imageBuilder'
 ---
+<style>
+    .description {
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+</style>
+
 <div class="w-96 md:w-80 rounded-md shadow-lg relative bg-pie-400">
-    <a href={`/reviews/${review.slug}`}>
-        <img src={review.image} alt="" class="object-cover h-48 w-96 grayscale">
+    <a href={`/reviews/${review.slug.current}`}>
+        <img src={urlForImage(review.image)} alt="" class="object-cover h-48 w-96 grayscale">
         <div class="px-6 py-4">
             <div class="text-gray-700 font-bold text-xl mb-2">{review.brand} {review.range}</div>
-            <p class="text-gray-700 text-base mb-12">
-                {description.length ? description + '...' : 'No description'}
+            <p class="text-gray-700 text-base mb-20 description">
+                {review.description ?? 'No description'}
             </p>
         </div>
         <div class="absolute -bottom-4 -right-2 rounded-full h-20 w-20 grid items-center text-center bg-pie-600 text-black font-black z-0">
-            {review.overal}/20
+            {review.overall}/20
         </div>
     </a>
 </div>	
