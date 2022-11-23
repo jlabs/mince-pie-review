@@ -19,6 +19,7 @@ export async function getStaticPaths() {
 }
 
 const { review } = Astro.props;
+console.log(review.overall)
 
 const stats:String[] = [];
 Object.keys(review.rating).map((rating) => {
@@ -30,7 +31,7 @@ Object.keys(review.rating).map((rating) => {
   )
 })
 
-const title = review.brand + ' ' + review.range;
+const title = review.brand + ' ' + (review.range ?? '');
 
 //TODO: add the overal score somewhere
 ---
