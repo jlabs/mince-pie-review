@@ -96,6 +96,10 @@ export default {
         }
     ],
     preview: {
-        select: {title: 'brand', media: 'image'},
+        select: {
+            title: 'brand',
+            subtitle: 'range',
+            media: 'image'
+        },
     },
 }
