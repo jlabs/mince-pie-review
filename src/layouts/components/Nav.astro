@@ -1,7 +1,7 @@
 ---
 const pathname = new URL(Astro.request.url).pathname;
 const currentPath = pathname.slice(1).split('/')[0];
-console.log('path = ' + currentPath);
+
 const { heroTitle } = Astro.props;
 
 const activeLink = ['bg-gray-900', 'text-white', 'px-3', 'py-2', 'rounded-md', 'text-sm', 'font-medium'];
@@ -44,11 +44,10 @@ const passiveLink = ['text-gray-300', 'hover:bg-gray-700', 'hover:text-white', '
          <div class="hidden sm:ml-6 sm:block">
             <div class="flex space-x-4">
                <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-               <a href="/reviews" class={currentPath == '' ? activeLink.join(' ') : passiveLink.join(' ')} aria-current="page">Reviews</a>
-
-               <a href="/about" class={currentPath == '' ? activeLink.join(' ') : passiveLink.join(' ')}>About</a>
-
-               <a href="/suggest" class={currentPath == '' ? activeLink.join(' ') : passiveLink.join(' ')}>Suggest</a>
+               <a href="/reviews" class={currentPath == '' ? activeLink.join(' ') : passiveLink.join(' ')} aria-current="page">Home</a>
+               <a href="/reviews" class={currentPath == 'reviews' ? activeLink.join(' ') : passiveLink.join(' ')} aria-current="page">Reviews</a>
+               <a href="/about" class={currentPath == 'about' ? activeLink.join(' ') : passiveLink.join(' ')}>About</a>
+               <a href="/suggest" class={currentPath == 'suggest' ? activeLink.join(' ') : passiveLink.join(' ')}>Suggest</a>
             </div>
          </div>
          </div>
