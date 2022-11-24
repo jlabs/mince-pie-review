@@ -1,4 +1,6 @@
 ---
+import { urlForImage } from '../../lib/imageBuilder.js';
+
 const {review} = Astro.props
 const published = new Date(review.published);
 ---
@@ -16,6 +18,6 @@ const published = new Date(review.published);
             <dt class='text-base lg:text-2xl font-medium'>Served</dt>
             <dd class='ml-4 lg:text-lg text-md'>{review.served}</dd>
         </dl>
-        <img src={review.image} alt="" class='h-full object-cover col-start-2 col-span-2'>
+        <img src={urlForImage(review.image)} alt="" class='h-full object-cover col-start-2 col-span-2'>
     </div>
 </div>
