@@ -7,7 +7,6 @@ import ReviewCard from '../layouts/components/ReviewCard.astro';
 import { getAllReviews } from '../lib/api';
 
 const reviews = await getAllReviews();
-console.log(reviews[0])
 
 const sortedReviews = reviews.sort((a,b) => new Date(b.published).getTime() - new Date(a.published).getTime()).slice(0,3);
 const topReviews = reviews.sort((a,b) => b.overall - a.overall).slice(0,3);
