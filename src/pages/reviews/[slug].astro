@@ -19,7 +19,6 @@ export async function getStaticPaths() {
 }
 
 const { review } = Astro.props;
-console.log(review.overall)
 
 const stats:String[] = [];
 Object.keys(review.rating).map((rating) => {
