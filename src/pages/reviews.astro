@@ -26,7 +26,7 @@ const sortedReviews = reviews.sort((a,b) => new Date(b.published).getTime() - ne
 						<div class="mt-4 flex justify-between">
 							<div>
 								<h3 class="text-sm text-gray-700">
-									<a href="#">
+									<a href={'reviews/' + review.slug.current}>
 										<span aria-hidden="true" class="absolute inset-0"></span>
 										{review.brand}
 									</a>
