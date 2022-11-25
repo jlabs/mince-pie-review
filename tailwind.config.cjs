@@ -3,6 +3,9 @@ module.exports = {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 	theme: {
 		extend: {
+			gridTemplateRows: {
+				'[auto,auto,1fr]': 'auto auto 1fr',
+			},
 			colors: {
 				mincepiebg: {
 					500: '#1e1e1e'
