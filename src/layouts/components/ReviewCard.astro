@@ -12,17 +12,20 @@ import { urlForImage } from '../../lib/imageBuilder'
     }
 </style>
 
-<div class="w-96 md:w-80 rounded-md shadow-lg relative bg-pie-400">
-    <a href={`/reviews/${review.slug.current}`}>
-        <img src={urlForImage(review.image)} alt="" class="object-cover h-48 w-96 grayscale">
-        <div class="px-6 py-4">
-            <div class="text-gray-700 font-bold text-xl mb-2">{review.brand} {review.range}</div>
-            <p class="text-gray-700 text-base mb-20 description">
-                {review.description ?? 'No description'}
-            </p>
+<div class="group relative">
+    <div class="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-80">
+        <img src={urlForImage(review.image)} alt="Front of men&#039;s Basic Tee in black." class="h-full w-full object-cover object-center lg:h-full lg:w-full">
+    </div>
+    <div class="mt-4 flex justify-between">
+        <div>
+            <h3 class="text-sm text-gray-700">
+                <a href={'reviews/' + review.slug.current}>
+                    <span aria-hidden="true" class="absolute inset-0"></span>
+                    {review.brand}
+                </a>
+            </h3>
+            <p class="mt-1 text-sm text-gray-500">{review.range ?? ''}</p>
         </div>
-        <div class="absolute -bottom-4 -right-2 rounded-full h-20 w-20 grid items-center text-center bg-pie-600 text-black font-black z-0">
-            {review.overall}/20
-        </div>
-    </a>
+        <p class="text-sm font-medium text-gray-900">{review.overall}/20</p>
+    </div>
 </div>	
