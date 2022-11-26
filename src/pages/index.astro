@@ -1,56 +1,75 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-
-//import {reviews} from '../data/reviews';
 import ReviewCard from '../layouts/components/ReviewCard.astro';
 
 import { getAllReviews } from '../lib/api';
+import { urlForImage } from '../lib/imageBuilder'
 
 const reviews = await getAllReviews();
 
 const sortedReviews = reviews.sort((a,b) => new Date(b.published).getTime() - new Date(a.published).getTime()).slice(0,3);
 const topReviews = reviews.sort((a,b) => b.overall - a.overall).slice(0,3);
 const notReviews = reviews.sort((a,b) => a.overall - b.overall).slice(0,3);
+
+const randomReviews = reviews.sort(() => 0.5 - Math.random()).slice(0, 7);
 ---
 <!-- Below is your "component template." It's just HTML, but with
 	some magic sprinkled in to help you build great templates. -->
 <BaseLayout heroTitle='Mince Pie Review'>
-	<!-- This example requires Tailwind CSS v3.0+ -->
-	<div class="isolate bg-mincepiebg-500">
-		<main>
-			<div class="relative px-6 lg:px-8">
-				<div class="mx-auto max-w-3xl pt-20 pb-32 sm:pt-48 sm:pb-40">
-					<div>
-						<div class="hidden sm:mb-8 sm:flex sm:justify-center">
-							<div class="relative overflow-hidden rounded-full py-1.5 px-4 text-sm leading-6 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
-								<span class="text-gray-600">
-								We're full swing into 2022 based pies. <a href="/reviews" class="font-semibold text-mincepiebg-600"><span class="absolute inset-0" aria-hidden="true"></span>Read more <span aria-hidden="true">&rarr;</span></a>
-								</span>
-							</div>
-						</div>
-						<div>
-							<h1 class="text-4xl font-bold tracking-tight sm:text-center sm:text-6xl">Mince Pie Review</h1>
-							<p class="mt-6 text-lg leading-8 text-gray-600 sm:text-center">Welcome to the Mince Pie Review site. Based on the Isle of Wight, we're a small group of festive pie testers welcoming high street and locally baked pies</p>
-							
-							<div class="mt-8 flex gap-x-4 sm:justify-center">
-								<a href="/reviews" class="inline-block rounded-lg bg-pie-600 px-4 py-1.5 text-base font-semibold leading-7 text-mincepiebg-500 shadow-sm ring-1 ring-pie-400 hover:bg-pie-400 hover:ring-indigo-700">
-									See the reviews!
-									<span class="text-mincepiebg-500" aria-hidden="true">&rarr;</span>
-								</a>
-								<a href="/suggest" class="inline-block rounded-lg px-4 py-1.5 text-base font-semibold leading-7 text-gray-900 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
-									Suggest a pie
-									<span class="text-gray-400" aria-hidden="true">&rarr;</span>
-								</a>
+	<div class="relative overflow-hidden bg-mincepiebg-500">
+		<div class="pt-16 pb-80 sm:pt-24 sm:pb-40 lg:pt-40 lg:pb-48">
+			<div class="relative mx-auto max-w-7xl px-4 sm:static sm:px-6 lg:px-8">
+			<div class="sm:max-w-lg">
+				<h1 class="font text-4xl font-bold tracking-tight text-pie-400 sm:text-6xl">Mince Pie Review</h1>
+				<p class="mt-4 text-xl text-pie-600">We're a small collection of festive pie eaters (not all pie lovers) sharing our tastes and opinions on local and highstreet based pies.</p>
+			</div>
+			<div>
+				<div class="mt-10">
+					<!-- Decorative image grid -->
+					<div aria-hidden="true" class="pointer-events-none lg:absolute lg:inset-y-0 lg:mx-auto lg:w-full lg:max-w-7xl">
+						<div class="absolute transform sm:left-1/2 sm:top-0 sm:translate-x-8 lg:left-1/2 lg:top-1/2 lg:-translate-y-1/2 lg:translate-x-8">
+							<div class="flex items-center space-x-6 lg:space-x-8">
+								<div class="grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
+									<div class="h-64 w-44 overflow-hidden rounded-lg sm:opacity-0 lg:opacity-100">
+										<img src={urlForImage(randomReviews[0].image)} alt="" class="h-full w-full object-cover object-center">
+									</div>
+									<div class="h-64 w-44 overflow-hidden rounded-lg">
+										<img src={urlForImage(randomReviews[1].image)} alt="" class="h-full w-full object-cover object-center">
+									</div>
+								</div>
+								<div class="grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
+									<div class="h-64 w-44 overflow-hidden rounded-lg">
+										<img src={urlForImage(randomReviews[2].image)} alt="" class="h-full w-full object-cover object-center">
+									</div>
+									<div class="h-64 w-44 overflow-hidden rounded-lg">
+										<img src={urlForImage(randomReviews[3].image)} alt="" class="h-full w-full object-cover object-center">
+									</div>
+									<div class="h-64 w-44 overflow-hidden rounded-lg">
+										<img src={urlForImage(randomReviews[4].image)} alt="" class="h-full w-full object-cover object-center">
+									</div>
+								</div>
+								<div class="grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
+									<div class="h-64 w-44 overflow-hidden rounded-lg">
+										<img src={urlForImage(randomReviews[5].image)} alt="" class="h-full w-full object-cover object-center">
+									</div>
+									<div class="h-64 w-44 overflow-hidden rounded-lg">
+										<img src={urlForImage(randomReviews[6].image)} alt="" class="h-full w-full object-cover object-center">
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
+			
+					<a href="#" class="inline-block rounded-md border border-transparent bg-pie-600 py-3 px-8 text-center font-medium text-mincepiebg-500 hover:bg-indigo-700">Read the reviews</a>
 				</div>
 			</div>
-		</main>
+			</div>
+		</div>
 	</div>
-	<div class="bg-white">
+
+	<div class="bg-pie-400">
 		<div class="mx-auto max-w-2xl py-16 px-4 sm:py-8 sm:pt-6 lg:max-w-7xl lg:px-8">
-			<h2 class="text-2xl font-bold tracking-tight text-gray-900">Latest Reviews</h2>		
+			<h2 class="text-2xl font-bold tracking-tight text-mincepiebg-500">Latest Reviews</h2>		
 			<small class=''>The most recent reviews by the team and contributors</small>
 			<div class="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
 				{sortedReviews.map((review) => 
@@ -59,9 +78,9 @@ const notReviews = reviews.sort((a,b) => a.overall - b.overall).slice(0,3);
 			</div>
 		</div>
 	</div>
-	<div class="bg-white">
+	<div class="bg-pie-400">
 		<div class="mx-auto max-w-2xl py-16 px-4 sm:py-8 sm:px-6 lg:max-w-7xl lg:px-8">
-			<h2 class="text-2xl font-bold tracking-tight text-gray-900">Top Pies</h2>		
+			<h2 class="text-2xl font-bold tracking-tight text-mincepiebg-500">Top Pies</h2>		
 			<small class=''>Our top 3 pies we've experienced</small>
 			<div class="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
 				{topReviews.map((review) => 
@@ -70,9 +89,9 @@ const notReviews = reviews.sort((a,b) => a.overall - b.overall).slice(0,3);
 			</div>
 		</div>
 	</div>
-	<div class="bg-white">
+	<div class="bg-pie-400">
 		<div class="mx-auto max-w-2xl py-16 px-4 sm:py-8 sm:px-6 lg:max-w-7xl lg:px-8">
-			<h2 class="text-2xl font-bold tracking-tight text-gray-900">Not So Top Pies</h2>		
+			<h2 class="text-2xl font-bold tracking-tight text-mincepiebg-500">Not So Top Pies</h2>		
 			<small class=''>All a matter of a pie based opinion<</small>
 			<div class="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
 				{notReviews.map((review) => 
