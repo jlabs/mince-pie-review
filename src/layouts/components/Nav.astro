@@ -4,12 +4,12 @@ const currentPath = pathname.slice(1).split('/')[0];
 
 const { heroTitle } = Astro.props;
 
-const activeLink = ['bg-gray-900', 'text-white', 'px-3', 'py-2', 'rounded-md', 'text-sm', 'font-medium'];
-const passiveLink = ['text-gray-300', 'hover:bg-gray-700', 'hover:text-white', 'px-3', 'py-2', 'rounded-md', 'text-sm', 'font-medium']
-const activeLinkMobile = ['bg-gray-90', 'text-white', 'block', 'px-3', 'py-2', 'rounded-md', 'text-base', 'font-medium'];
-const passiveLinkMobile = ['text-gray-300', 'hover:bg-gray-700', 'hover:text-white', 'block', 'px-3', 'py-2', 'rounded-md', 'text-base', 'font-medium']
+const activeLink = ['bg-mincepiebg-500', 'text-pie-400', 'px-3', 'py-2', 'rounded-md', 'text-sm', 'font-medium'];
+const passiveLink = ['text-mincepiebg-500', 'hover:bg-mincepiebg-500', 'hover:text-pie-400', 'px-3', 'py-2', 'rounded-md', 'text-sm', 'font-medium']
+const activeLinkMobile = ['bg-mincepiebg-500', 'text-white', 'block', 'px-3', 'py-2', 'rounded-md', 'text-base', 'font-medium'];
+const passiveLinkMobile = ['text-gray-300', 'hover:bg-mincepiebg-500', 'hover:text-white', 'block', 'px-3', 'py-2', 'rounded-md', 'text-base', 'font-medium']
 ---
-<nav class="bg-gray-800">
+<nav class="bg-pie-600">
    <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
       <div class="relative flex h-16 items-center justify-between">
          <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -39,19 +39,19 @@ const passiveLinkMobile = ['text-gray-300', 'hover:bg-gray-700', 'hover:text-whi
          </button>
          </div>
          <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-         <div class="flex flex-shrink-0 items-center">
-            <img class="block h-8 w-auto lg:hidden" src="/images/logo.jpg" alt="Your Company">
-            <img class="hidden h-8 w-auto lg:block" src="/images/logo.jpg" alt="Your Company">
-         </div>
-         <div class="hidden sm:ml-6 sm:block">
-            <div class="flex space-x-4">
-               <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-               <a href="/" class={currentPath == '' ? activeLink.join(' ') : passiveLink.join(' ')} aria-current="page">Home</a>
-               <a href="/reviews" class={currentPath == 'reviews' ? activeLink.join(' ') : passiveLink.join(' ')} aria-current="page">Reviews</a>
-               <a href="/about" class={currentPath == 'about' ? activeLink.join(' ') : passiveLink.join(' ')}>About</a>
-               <a href="/suggest" class={currentPath == 'suggest' ? activeLink.join(' ') : passiveLink.join(' ')}>Suggest</a>
+            <!-- <div class="flex flex-shrink-0 items-center">
+               <img class="block h-8 w-auto lg:hidden" src="/images/logo.jpg" alt="Your Company">
+               <img class="hidden h-8 w-auto lg:block" src="/images/logo.jpg" alt="Your Company">
+            </div> -->
+            <div class="hidden sm:ml-6 sm:block">
+               <div class="flex space-x-4">
+                  <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+                  <a href="/" class={currentPath == '' ? activeLink.join(' ') : passiveLink.join(' ')} aria-current="page">Home</a>
+                  <a href="/reviews" class={currentPath == 'reviews' ? activeLink.join(' ') : passiveLink.join(' ')} aria-current="page">Reviews</a>
+                  <a href="/about" class={currentPath == 'about' ? activeLink.join(' ') : passiveLink.join(' ')}>About</a>
+                  <a href="/suggest" class={currentPath == 'suggest' ? activeLink.join(' ') : passiveLink.join(' ')}>Suggest</a>
+               </div>
             </div>
-         </div>
          </div>
       </div>
    </div>
