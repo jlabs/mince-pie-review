@@ -127,8 +127,8 @@ const title = review.brand + ' ' + (review.range ?? '');
                   <path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clip-rule="evenodd" />
                 </svg>
               </div>
-              <p class="sr-only">4 out of 5 stars</p>
-              <a href="#" class="ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500">{review.reviewers ?? 0} reviewers</a>
+              <p class="sr-only">{review.overall} out of 20</p>
+              <a href="#" class="ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500">{review.reviewers ? review.reviewers + ' reviewers' : 0}</a>
             </div>
           </div>
   
@@ -296,7 +296,7 @@ const title = review.brand + ' ' + (review.range ?? '');
             </div>
           </div>
   
-          <div class="mt-10">
+          <!-- <div class="mt-10">
             <h3 class="text-sm font-medium text-gray-900">Highlights</h3>
   
             <div class="mt-4">
@@ -310,15 +310,15 @@ const title = review.brand + ' ' + (review.range ?? '');
                 <li class="text-gray-400"><span class="text-gray-600">Ultra-soft 100% cotton</span></li>
               </ul>
             </div>
-          </div>
+          </div> -->
   
-          <div class="mt-10">
+          <!-- <div class="mt-10">
             <h2 class="text-sm font-medium text-gray-900">Details</h2>
   
             <div class="mt-4 space-y-6">
               <p class="text-sm text-gray-600">The 6-Pack includes two black, two white, and two heather gray Basic Tees. Sign up for our subscription service and be the first to get new, exciting colors, like our upcoming &quot;Charcoal Gray&quot; limited release.</p>
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
