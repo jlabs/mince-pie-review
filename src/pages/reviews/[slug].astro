@@ -51,15 +51,15 @@ const title = review.brand + ' ' + (review.range ?? '');
   
           <li>
             <div class="flex items-center">
-              <a href="/reviews" class="mr-2 text-sm font-medium text-gray-900">Reviews</a>
-              <svg width="16" height="20" viewBox="0 0 16 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="h-5 w-4 text-gray-300">
+              <a href="/reviews" class="mr-2 text-sm font-medium text-mincepiebg-500">Reviews</a>
+              <svg width="16" height="20" viewBox="0 0 16 20" fill="text-mincepieby-500" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="h-5 w-4 text-gray-300">
                 <path d="M5.697 4.34L8.98 16.532h1.327L7.025 4.341H5.697z" />
               </svg>
             </div>
           </li>
   
           <li class="text-sm">
-            <a href={review.slug.current} aria-current="page" class="font-medium text-gray-500 hover:text-gray-600">{review.brand} {review.range ?? ''}</a>
+            <a href={review.slug.current} aria-current="page" class="text-mincepiebg-500 font-black hover:text-foil-500">{review.brand} {review.range ?? ''}</a>
           </li>
         </ol>
       </nav>
