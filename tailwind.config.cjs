@@ -17,6 +17,16 @@ module.exports = {
 				},
 				foil: {
 					500: '#B8B2A7'
+				},
+				brandblue: {
+					400: '#94C6D3',
+					600: '#066791'
+				},
+				brandyellow: {
+					500: '#FFB600'
+				},
+				brandgrey: {
+					500: '#1E1E1E'
 				}
 			}
 		},
