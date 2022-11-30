@@ -4,6 +4,12 @@ export default {
     type: 'document',
     fields: [
         {
+            name: 'live',
+            title: 'Review is live',
+            type: 'boolean',
+            description: 'Is this review to be live?'
+        },
+        {
             name: 'brand',
             title: 'Brand',
             type: 'string',
