@@ -1,32 +1,97 @@
 ---
-// Welcome to Astro! Everything between these triple-dash code fences
-// is your "component front matter". It never runs in the browser.
-
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+import { getAllReviews } from '../lib/api';
+import { urlForImage } from '../lib/imageBuilder'
+
+const reviews = await getAllReviews();
+const randomReviews = reviews.sort(() => 0.5 - Math.random()).slice(0, 7);
+const review = randomReviews[0];
 ---
 <BaseLayout title='About' heroTitle='About This Here Site'>
-	<div class="bg-pie-400">
-		<div class="mx-auto max-w-2xl py-16 px-4 sm:py-8 sm:pt-6 lg:max-w-7xl lg:px-8">
-			<h2 class="text-xl uppercase font-bold">What's this about?</h2>		
-			<p>What can we say, it's a site about reviewing mince pies ... what else is there to explain?</p>
-		</div>
-	</div>
-	<div class="bg-pie-400">
-		<div class="mx-auto max-w-2xl py-16 px-4 sm:py-8 sm:pt-6 lg:max-w-7xl lg:px-8">
-			<h2 class="text-xl uppercase font-bold">Why is this about?</h2>		
-			<p>
-				The history is a little vague as the original creators of this here challenge have gradually filtered off to new ventures.
-					So the challenge has be bestowed upon the current team to carry on the mince pie torch - without eating or rating it.
-			</p>
-			<p>
-				We've created this site because that's the thing we do any way, and also to have a little record for our festive fun.
-			</p>
-		</div>
-	</div>
-	<div class="bg-pie-400">
-		<div class="mx-auto max-w-2xl py-16 px-4 sm:py-8 sm:pt-6 lg:max-w-7xl lg:px-8">
-			<h2 class="text-xl uppercase font-bold">With thanks</h2>		
-			<p>This site is built on <a href="https://astro.build/" target="_blank" class="text-brandgrey-500 underline font-semibold">Astro</a> - it's quick, it's light, and it's quick. For the 'look' of the site we're using the popular <a href="https://tailwindcss.com" target="_blank" class="text-brandgrey-500 underline font-semibold">TailwindCSS</a>. The social icons were sourced from <a href="https://icons8.com/" target="_blank" class="text-brandgrey-500 underline font-semibold">Icons8</a></p>
+	<div class="relative bg-brandyello-500 py-16 sm:py-24">
+		<div class="lg:mx-auto lg:grid lg:max-w-7xl lg:grid-cols-2 lg:items-start lg:gap-24 lg:px-8">
+			<div class="relative sm:py-16 lg:py-0">
+				<div aria-hidden="true" class="hidden sm:block lg:absolute lg:inset-y-0 lg:right-0 lg:w-screen">
+					<div class="absolute inset-y-0 right-1/2 w-full rounded-r-3xl bg-brandgrey-500 lg:right-72"></div>
+					<svg class="absolute top-8 left-1/2 -ml-3 lg:-right-8 lg:left-auto lg:top-12" width="404" height="392" fill="none" viewBox="0 0 404 392">
+						<defs>
+							<pattern id="02f20b47-fd69-4224-a62a-4c9de5c763f7" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+								<rect x="0" y="0" width="4" height="4" class="text-brandblue-400" fill="currentColor" />
+							</pattern>
+						</defs>
+						<rect width="404" height="392" fill="url(#02f20b47-fd69-4224-a62a-4c9de5c763f7)" />
+					</svg>
+				</div>
+				<div class="relative mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:max-w-none lg:px-0 lg:py-20">
+					<!-- Testimonial card-->
+					<div class="relative overflow-hidden rounded-2xl pt-64 pb-10 shadow-xl">
+						<img class="absolute inset-0 h-full w-full object-cover" src={urlForImage(review.image)} alt="">
+						<div class="absolute inset-0 bg-white mix-blend-multiply"></div>
+						<div class="absolute inset-0 bg-gradient-to-t from-pie-400 via-pie-600 opacity-90"></div>
+						<div class="relative px-8">
+							<blockquote class="mt-8">
+								<div class="relative text-xl font-thin text-brandgrey-500 md:flex-grow">
+									<svg class="absolute top-0 left-0 h-8 w-8 -translate-x-3 -translate-y-2 transform text-gray-200" fill="currentColor" viewBox="0 0 32 32" aria-hidden="true">
+										<path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z" />
+									</svg>
+									<p class="relative">I don't really like mince pies.</p>
+								</div>
+				
+								<footer class="mt-4">
+									<p class="text-base font-semibold text-brandgrey-500">One for the team, Employee at Matrix Create</p>
+								</footer>
+							</blockquote>
+						</div>
+					</div>
+				</div>
+			</div>
+		
+			<div class="relative mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:px-0">
+				<!-- Content area -->
+				<div class="pt-12 sm:pt-16 lg:pt-20">
+					<h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">About Mince Pie Review</h2>
+					<div class="mt-6 space-y-6 text-gray-500">
+						<p class="text-lg">What can we say, it's a site about reviewing mince pies ... what else is there to explain?</p>
+						<h3 class="text-xl tracking-tight text-gray-900 sm:text-2xl">Why is this about?</h3>
+						<p class="text-base leading-7">The history is a little vague as the original creators of this here challenge have gradually filtered off to new ventures. So the challenge has be bestowed upon the current team to carry on the mince pie torch - without eating or rating it.</p>
+						<p class="text-base leading-7">We've created this site because that's the thing we do any way, and also to have a little record for our festive fun.</p>
+						<h3 class="text-xl tracking-tight text-gray-900 sm:text-2xl">With thanks</h3>
+						<p class="text-base leading-7">This site is built on <a href="https://astro.build/" target="_blank" class="text-brandgrey-500 underline font-semibold">Astro</a> - it's quick, it's light, and it's quick. For the 'look' of the site we're using the popular <a href="https://tailwindcss.com" target="_blank" class="text-brandgrey-500 underline font-semibold">TailwindCSS</a>.</p>
+					</div>
+				</div>
+			
+				<!-- Stats section -->
+				<div class="mt-10">
+					<!-- <dl class="grid grid-cols-2 gap-x-4 gap-y-8">
+						<div class="border-t-2 border-gray-100 pt-6">
+							<dt class="text-base font-medium text-gray-500">Founded</dt>
+							<dd class="text-3xl font-bold tracking-tight text-gray-900">2021</dd>
+						</div>
+				
+						<div class="border-t-2 border-gray-100 pt-6">
+							<dt class="text-base font-medium text-gray-500">Employees</dt>
+							<dd class="text-3xl font-bold tracking-tight text-gray-900">5</dd>
+						</div>
+				
+						<div class="border-t-2 border-gray-100 pt-6">
+							<dt class="text-base font-medium text-gray-500">Beta Users</dt>
+							<dd class="text-3xl font-bold tracking-tight text-gray-900">521</dd>
+						</div>
+				
+						<div class="border-t-2 border-gray-100 pt-6">
+							<dt class="text-base font-medium text-gray-500">Raised</dt>
+							<dd class="text-3xl font-bold tracking-tight text-gray-900">$25M</dd>
+						</div>
+					</dl> -->
+					<div class="mt-10">
+						<a href="https://matrixcreate.com" target="_blank" class="text-base font-bold underline text-brandgrey-500">
+							Learn more our real work
+							<span aria-hidden="true"> &rarr;</span>
+						</a>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 	
