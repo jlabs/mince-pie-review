@@ -5,8 +5,26 @@ import { getAllReviews } from '../lib/api';
 import { urlForImage } from '../lib/imageBuilder'
 
 const reviews = await getAllReviews();
+
 const randomReviews = reviews.sort(() => 0.5 - Math.random()).slice(0, 7);
 const review = randomReviews[0];
+
+const prices = reviews.map(p => {
+	return p.price;
+})
+
+const maxPrice = Math.max(...prices);
+
+const totalSpent = prices.reduce((acc, current) => {
+	return acc + current
+})
+
+const reviewers = reviews.map(r => {
+	return r.reviewers;
+})
+const totalReviewers = reviewers.reduce((acc, curr) => {
+	return acc + curr;
+})
 ---
 <BaseLayout title='About' heroTitle='About This Here Site'>
 	<div class="relative bg-brandyello-500 py-16 sm:py-24">
@@ -60,30 +78,30 @@ const review = randomReviews[0];
 						<p class="text-base leading-7">This site is built on <a href="https://astro.build/" target="_blank" class="text-brandgrey-500 underline font-semibold">Astro</a> - it's quick, it's light, and it's quick. For the 'look' of the site we're using the popular <a href="https://tailwindcss.com" target="_blank" class="text-brandgrey-500 underline font-semibold">TailwindCSS</a>.</p>
 					</div>
 				</div>
-			
+			<!-- TODO: show stats of overal reviews -->
 				<!-- Stats section -->
 				<div class="mt-10">
-					<!-- <dl class="grid grid-cols-2 gap-x-4 gap-y-8">
+					<dl class="grid grid-cols-2 gap-x-4 gap-y-8">
 						<div class="border-t-2 border-gray-100 pt-6">
-							<dt class="text-base font-medium text-gray-500">Founded</dt>
-							<dd class="text-3xl font-bold tracking-tight text-gray-900">2021</dd>
+							<dt class="text-base font-medium text-gray-500">Most expensive pie</dt>
+							<dd class="text-3xl font-bold tracking-tight text-gray-900">£{maxPrice}</dd>
 						</div>
 				
 						<div class="border-t-2 border-gray-100 pt-6">
-							<dt class="text-base font-medium text-gray-500">Employees</dt>
-							<dd class="text-3xl font-bold tracking-tight text-gray-900">5</dd>
+							<dt class="text-base font-medium text-gray-500">Amount spent on pies</dt>
+							<dd class="text-3xl font-bold tracking-tight text-gray-900">£{totalSpent}</dd>
 						</div>
 				
 						<div class="border-t-2 border-gray-100 pt-6">
-							<dt class="text-base font-medium text-gray-500">Beta Users</dt>
-							<dd class="text-3xl font-bold tracking-tight text-gray-900">521</dd>
+							<dt class="text-base font-medium text-gray-500">Number of reviews</dt>
+							<dd class="text-3xl font-bold tracking-tight text-gray-900">{reviews.length}</dd>
 						</div>
 				
 						<div class="border-t-2 border-gray-100 pt-6">
-							<dt class="text-base font-medium text-gray-500">Raised</dt>
-							<dd class="text-3xl font-bold tracking-tight text-gray-900">$25M</dd>
+							<dt class="text-base font-medium text-gray-500">Number of contributed reviewers</dt>
+							<dd class="text-3xl font-bold tracking-tight text-gray-900">{totalReviewers}</dd>
 						</div>
-					</dl> -->
+					</dl>
 					<div class="mt-10">
 						<a href="https://matrixcreate.com" target="_blank" class="text-base font-bold underline text-brandgrey-500">
 							Learn more our real work
