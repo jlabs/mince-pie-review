@@ -1,5 +1,5 @@
 ---
-const { review } = Astro.props;
+const { review, overall, published, price } = Astro.props;
 
 import { urlForImage } from '../../lib/imageBuilder'
 ---
@@ -12,7 +12,7 @@ import { urlForImage } from '../../lib/imageBuilder'
     }
 </style>
 
-<div class="group relative">
+<div class="group relative review" data-price={price} data-overall={overall < 10 ? `0` + overall : overall} data-date={published}>
     <div class="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-80">
         <img src={urlForImage(review.image)} alt="Image of mince pie." class="h-full w-full object-cover object-center lg:h-full lg:w-full">
     </div>
