@@ -4,10 +4,10 @@ const currentPath = pathname.slice(1).split('/')[0];
 
 const { heroTitle } = Astro.props;
 
-const activeLink = ['bg-mincepiebg-500', 'text-pie-400', 'px-3', 'py-2', 'rounded-md', 'text-sm', 'font-medium'];
-const passiveLink = ['text-brandblue-400', 'hover:bg-mincepiebg-500', 'hover:text-pie-400', 'px-3', 'py-2', 'rounded-md', 'text-sm', 'font-medium']
-const activeLinkMobile = ['bg-mincepiebg-500', 'text-white', 'block', 'px-3', 'py-2', 'rounded-md', 'text-base', 'font-medium'];
-const passiveLinkMobile = ['text-brandgrey-500', 'hover:bg-brandgrey-500', 'hover:text-white', 'block', 'px-3', 'py-2', 'rounded-md', 'text-base', 'font-medium'];
+const activeLink = ['text-[#F4F4F4]', 'px-3', 'py-2', 'rounded-md', 'text-sm', 'font-medium'];
+const passiveLink = ['text-[#FFB600]', 'hover:text-pie-400', 'px-3', 'py-2', 'rounded-md', 'text-sm', 'font-medium']
+const activeLinkMobile = ['text-[#F4F4F4]', 'block', 'px-3', 'py-2', 'rounded-md', 'text-base', 'font-medium'];
+const passiveLinkMobile = ['text-[#FFB600]', 'block', 'px-3', 'py-2', 'rounded-md', 'text-base', 'font-medium'];
 ---
 <nav class="bg-brandgrey-500 border-b-[#F4F4F4] border-b">
    <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
