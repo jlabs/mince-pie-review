@@ -68,35 +68,35 @@ const totalReviewers = reviewers.reduce((acc, curr) => {
 			<div class="relative mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:px-0">
 				<!-- Content area -->
 				<div class="pt-12 sm:pt-16 lg:pt-20">
-					<h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">About Mince Pie Review</h2>
-					<div class="mt-6 space-y-6 text-gray-500">
+					<h2 class="text-3xl font-bold tracking-tight text-brandgrey-500 sm:text-4xl">About Mince Pie Review</h2>
+					<div class="mt-6 space-y-6 text-brandgrey-500">
 						<p class="text-lg">What can we say, it's a site about reviewing mince pies ... what else is there to explain?</p>
-						<h3 class="text-xl tracking-tight text-gray-900 sm:text-2xl">Why is this about?</h3>
+						<h3 class="text-xl font-semibold tracking-tight text-brandgrey-500 sm:text-2xl">Why is this about?</h3>
 						<p class="text-base leading-7">The history is a little vague as the those who started this little festive fun have gradually filtered off to new ventures. So the challenge has be bestowed upon the current team to carry on the mince pie torch - without eating or rating it.</p>
 						<p class="text-base leading-7">We've created this site because that's the thing we do, and also to have a little record for our festive fun.</p>
-						<h3 class="text-xl tracking-tight text-gray-900 sm:text-2xl">With thanks</h3>
+						<h3 class="text-xl font-semibold tracking-tight text-brandgrey-500 sm:text-2xl">With thanks</h3>
 						<p class="text-base leading-7">This site is built on <a href="https://astro.build/" target="_blank" class="text-brandgrey-500 underline font-semibold">Astro</a> - it's quick, it's light, and it's quick. For the 'look' of the site we're using the popular <a href="https://tailwindcss.com" target="_blank" class="text-brandgrey-500 underline font-semibold">TailwindCSS</a>.</p>
 					</div>
 				</div>
 				<div class="mt-10">
 					<dl class="grid grid-cols-2 gap-x-4 gap-y-8">
-						<div class="border-t-2 border-gray-100 pt-6">
-							<dt class="text-base font-medium text-gray-500">Most expensive pie</dt>
+						<div class="border-t-2 border-[#F4F4F4] pt-6">
+							<dt class="text-base font-semibold text-brandgrey-500">Most expensive pie</dt>
 							<dd class="text-3xl font-bold tracking-tight text-gray-900">£{maxPrice}</dd>
 						</div>
 				
-						<div class="border-t-2 border-gray-100 pt-6">
-							<dt class="text-base font-medium text-gray-500">Amount spent on pies</dt>
+						<div class="border-t-2 border-[#F4F4F4] pt-6">
+							<dt class="text-base font-semibold text-brandgrey-500">Amount spent on pies</dt>
 							<dd class="text-3xl font-bold tracking-tight text-gray-900">£{totalSpent.toFixed(2)}</dd>
 						</div>
 				
-						<div class="border-t-2 border-gray-100 pt-6">
-							<dt class="text-base font-medium text-gray-500">Number of reviews</dt>
+						<div class="border-t-2 border-[#F4F4F4] pt-6">
+							<dt class="text-base font-semibold text-brandgrey-500">Number of reviews</dt>
 							<dd class="text-3xl font-bold tracking-tight text-gray-900">{reviews.length}</dd>
 						</div>
 				
-						<div class="border-t-2 border-gray-100 pt-6">
-							<dt class="text-base font-medium text-gray-500">Number of contributed reviewers</dt>
+						<div class="border-t-2 border-[#F4F4F4] pt-6">
+							<dt class="text-base font-semibold text-brandgrey-500">Number of reviewers</dt>
 							<dd class="text-3xl font-bold tracking-tight text-gray-900">{totalReviewers}</dd>
 						</div>
 					</dl>
