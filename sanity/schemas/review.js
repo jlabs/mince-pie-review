@@ -32,7 +32,8 @@ export default {
         {
             name: 'published',
             title: 'Published',
-            type: 'date'
+            type: 'date',
+            format: 'Do'
         },
         {
             name: 'description',
@@ -78,10 +79,13 @@ export default {
             name: 'served',
             title: 'Served hot or room temperature',
             type: 'string',
-            list: [
-                { title: 'Room Temperature', value: 'room-temperature'},
-                { title: 'Hot/Warm', value: 'hot-warm' }
-            ]
+            options: {
+                list: [
+                    { title: 'Room Temperature', value: 'room-temperature'},
+                    { title: 'Hot/Warm', value: 'hot-warm' }
+                ]
+            },
+            initialValue: 'room-temperature'
         },
         {
             name: 'side',
