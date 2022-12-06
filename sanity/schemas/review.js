@@ -33,7 +33,9 @@ export default {
             name: 'published',
             title: 'Published',
             type: 'date',
-            format: 'Do'
+            options: {
+                dateFormat: 'Do MMMM YYYY'
+            }
         },
         {
             name: 'description',
