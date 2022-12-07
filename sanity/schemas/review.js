@@ -38,11 +38,6 @@ export default {
             }
         },
         {
-            name: 'description',
-            title: 'Description',
-            type: 'text'
-        },
-        {
             name: 'review',
             title: 'Review',
             type: 'array',
