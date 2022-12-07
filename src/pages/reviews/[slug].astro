@@ -22,6 +22,9 @@ export async function getStaticPaths() {
 
 const { review } = Astro.props;
 
+const dateOptions = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' }
+const published = new Date(review.published).toLocaleDateString("en-GB", dateOptions)
+
 const stats:String[] = [];
 Object.keys(review.rating).map((rating) => {
   stats.push(
@@ -70,7 +73,7 @@ const title = review.brand + ' ' + (review.range ?? '');
           {review.overall} / 20 Overall
         </p>        
         <PortableText portableText={review.review}/>
-        
+
         <div class="mt-8 overflow-hidden">
           <dl class="-mx-8 -mt-8 flex flex-wrap">
             <div class="flex flex-col px-8 pt-8">
@@ -100,7 +103,7 @@ const title = review.brand + ' ' + (review.range ?? '');
     <dl class="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-3">
       <div class="overflow-hidden rounded-lg bg-brandwhite-500 px-4 py-5 shadow sm:p-6">
         <dt class="truncate text-sm font-medium text-gray-500">Price</dt>
-        <dd class="mt-1 text-3xl font-semibold tracking-tight text-gray-900">£ {review.price}</dd>
+        <dd class="mt-1 text-3xl font-semibold tracking-tight text-gray-900">£ {review.price.toFixed(2)}</dd>
       </div>
   
       <div class="overflow-hidden rounded-lg bg-brandwhite-500 px-4 py-5 shadow sm:p-6">
@@ -110,7 +113,7 @@ const title = review.brand + ' ' + (review.range ?? '');
 
       <div class="overflow-hidden rounded-lg bg-brandwhite-500 px-4 py-5 shadow sm:p-6">
         <dt class="truncate text-sm font-medium text-gray-500">Published</dt>
-        <dd class="mt-1 text-3xl font-semibold tracking-tight text-gray-900">{review.published}</dd>
+        <dd class="mt-1 text-3xl font-semibold tracking-tight text-gray-900">{published}</dd>
       </div>
     </dl>
   </div>
