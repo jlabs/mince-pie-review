@@ -43,6 +43,12 @@ export default {
             type: 'text'
         },
         {
+            name: 'review',
+            title: 'Review',
+            type: 'array',
+            of: [{ type: 'block' }]
+        },
+        {
             name: 'overall',
             title: 'Overall Rating',
             type: 'number',
