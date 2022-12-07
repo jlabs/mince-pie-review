@@ -105,6 +105,18 @@ export default {
             title: 'If the same pie has been reviewed then the round number goes up',
             type: 'number',
             initialValue: 1
+        },
+        {
+            name: 'source',
+            title: 'Local or supermarket?',
+            type: 'string',
+            options: {
+                list: [
+                    { title: 'Supermarket', value: 'supermarket' },
+                    { title: 'Local', value: 'local' }
+                ]
+            },
+            initialValue: 'supermarket'
         }
     ],
     preview: {
