@@ -44,6 +44,11 @@ export default {
             of: [{ type: 'block' }]
         },
         {
+            name: 'quote',
+            title: 'Tasters comment',
+            type: 'string'
+        },
+        {
             name: 'overall',
             title: 'Overall Rating',
             type: 'number',
