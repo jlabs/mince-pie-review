@@ -37,7 +37,8 @@ Object.keys(review.rating).map((rating) => {
 })
 
 const title = review.brand + ' ' + (review.range ?? '');
-const hasQuote = review.quote && review.quote.length;
+const hasQuote = review.quote && review.quote.length > 0;
+console.log(hasQuote);
 ---
 <BaseLayout title={title}>
   <div class="bg-brandyellow-500">
