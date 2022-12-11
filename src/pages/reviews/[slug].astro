@@ -37,9 +37,7 @@ Object.keys(review.rating).map((rating) => {
 })
 
 const title = review.brand + ' ' + (review.range ?? '');
-
-//TODO: show the quote somehwere
-//TODO: show the source (supermarket/local)
+const hasQuote = review.quote && review.quote.length;
 ---
 <BaseLayout title={title}>
   <div class="bg-brandyellow-500">
@@ -56,7 +54,7 @@ const title = review.brand + ' ' + (review.range ?? '');
           </li>
   
           <li class="text-sm">
-            <a href={review.slug.current} aria-current="page" class="text-mincepiebg-500 font-black hover:text-foil-500">{review.brand} {review.range ?? ''}</a>
+            <a href={review.slug.current} aria-current="page" class="text-mincepiebg-500 font-black hover:text-brandwhite-500">{review.brand} {review.range ?? ''}</a>
           </li>
         </ol>
       </nav>
@@ -64,13 +62,13 @@ const title = review.brand + ' ' + (review.range ?? '');
   </div>
 
   <div class="relative bg-brandyellow-500 mt-6">
-    <div class="h-56 bg-indigo-600 sm:h-72 lg:absolute lg:left-0 lg:h-full lg:w-1/2">
+    <div class={`bg-indigo-600 lg:h-full lg:absolute lg:left-0 lg:w-1/2 ${hasQuote ? 'h-72 lg:grid' : 'h-56 sm:h-72'}`}>
       {review.quote && review.quote.length ? 
-        <div class="relative overflow-hidden pt-64 pb-10 shadow-xl">
+        <div id="image" class="relative overflow-hidden pt-64 pb-10 shadow-xl">
           <img class="absolute inset-0 h-full w-full object-cover" src={urlForImage(review.image)} alt="Image of a mince pie">
           <div class="absolute inset-0 mix-blend-multiply"></div>
           <div class="absolute inset-0 bg-gradient-to-t from-brandwhite-500 via-brandyellow-500 opacity-90"></div>
-          <div class="relative px-8">
+          <div class="absolute bottom-0 pb-8 px-8">
             <blockquote class="mt-8">
               <div class="relative text-xl font-thin text-brandgrey-500 md:flex-grow">
                 <svg class="absolute top-0 left-0 h-8 w-8 -translate-x-3 -translate-y-2 transform text-gray-200" fill="currentColor" viewBox="0 0 32 32" aria-hidden="true">
@@ -88,10 +86,8 @@ const title = review.brand + ' ' + (review.range ?? '');
       :
         <img class="h-full w-full object-cover" src={urlForImage(review.image)} alt="Image of a mince pie">
       }
-
-
     </div>
-    <div class="relative mx-auto max-w-7xl px-4 py-8 mt-16 lg:mt-0 sm:py-12 sm:px-6 lg:py-16">
+    <div class={`relative mx-auto max-w-7xl px-4 py-8 lg:mt-0 sm:py-12 sm:px-6 lg:py-16 ${hasQuote ? 'py-12' : 'py-8 sm:py-12'}`}>
       <div class="mx-auto max-w-2xl lg:mr-0 lg:ml-auto lg:w-1/2 lg:max-w-none lg:pl-10">
         
         <h2 class="mt-6 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">{review.brand} {review.range ?? ''}</h2>
