@@ -33,7 +33,7 @@ interface Review {
 				</select>
 			</div>
 		
-			<div id='reviews' class="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+			<div id='reviews' class="mt-6 grid grid-cols-2 gap-y-10 gap-x-6 sm:grid-cols-3 lg:grid-cols-4 xl:gap-x-8">
 				{sortedReviews.map((review:Review) => 
 					<ReviewCard review={review} overall={review.overall} published={review.published} price={review.price} />	
 				)}
