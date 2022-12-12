@@ -25,6 +25,8 @@ const { review } = Astro.props;
 const source = review.source.charAt(0).toUpperCase() + review.source.slice(1);
 const dateOptions = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' }
 const published = new Date(review.published).toLocaleDateString("en-GB", dateOptions)
+const title = review.brand + ' ' + (review.range ?? '');
+const hasQuote = review.quote && review.quote.length > 0;
 
 const stats:String[] = [];
 Object.keys(review.rating).map((rating) => {
@@ -35,11 +37,6 @@ Object.keys(review.rating).map((rating) => {
     }
   )
 })
-
-const title = review.brand + ' ' + (review.range ?? '');
-
-//TODO: show the quote somehwere
-//TODO: show the source (supermarket/local)
 ---
 <BaseLayout title={title}>
   <div class="bg-brandyellow-500">
@@ -65,7 +62,19 @@ const title = review.brand + ' ' + (review.range ?? '');
 
   <div class="relative bg-brandyellow-500 mt-6">
     <div class="h-56 bg-indigo-600 sm:h-72 lg:absolute lg:left-0 lg:h-full lg:w-1/2">      
-        <img class="h-full w-full object-cover" src={urlForImage(review.image)} alt="Image of a mince pie">      
+        {hasQuote ? 
+          <div class="grid grid-rows-2 h-full grid-cols-1 relative">
+            <img class="h-full w-full object-cover row-start-1 row-span-2" src={urlForImage(review.image)} alt="Image of a mince pie">
+            <div class="self-end row-start-2 absolute w-full bg-brandgrey-500 p-8 text-brandwhite-500 opacity-60">
+              <q class=" text-xl">
+                {review.quote}
+              </q>
+              <p class="indent-0 text-sm">A tasters comment</p>
+            </div>
+          </div>
+        :
+          <img class="h-full w-full object-cover" src={urlForImage(review.image)} alt="Image of a mince pie">
+        }
 
 
     </div>
