@@ -37,7 +37,9 @@ Object.keys(review.rating).map((rating) => {
 })
 
 const title = review.brand + ' ' + (review.range ?? '');
-const hasQuote = review.quote && review.quote.length > 0;
+
+//TODO: show the quote somehwere
+//TODO: show the source (supermarket/local)
 ---
 <BaseLayout title={title}>
   <div class="bg-brandyellow-500">
@@ -54,7 +56,7 @@ const hasQuote = review.quote && review.quote.length > 0;
           </li>
   
           <li class="text-sm">
-            <a href={review.slug.current} aria-current="page" class="text-mincepiebg-500 font-black hover:text-brandwhite-500">{review.brand} {review.range ?? ''}</a>
+            <a href={review.slug.current} aria-current="page" class="text-mincepiebg-500 font-black hover:text-foil-500">{review.brand} {review.range ?? ''}</a>
           </li>
         </ol>
       </nav>
@@ -62,32 +64,12 @@ const hasQuote = review.quote && review.quote.length > 0;
   </div>
 
   <div class="relative bg-brandyellow-500 mt-6">
-    <div class={`bg-indigo-600 lg:h-full lg:absolute lg:left-0 lg:w-1/2 ${hasQuote ? 'h-72 lg:grid' : 'h-56 sm:h-72'}`}>
-      {review.quote && review.quote.length ? 
-        <div id="image" class="relative overflow-hidden pt-64 pb-10 shadow-xl">
-          <img class="absolute inset-0 h-full w-full object-cover" src={urlForImage(review.image)} alt="Image of a mince pie">
-          <div class="absolute inset-0 mix-blend-multiply"></div>
-          <div class="absolute inset-0 bg-gradient-to-t from-brandwhite-500 via-brandyellow-500 opacity-90"></div>
-          <div class="absolute bottom-0 pb-8 px-8">
-            <blockquote class="mt-8">
-              <div class="relative text-xl font-thin text-brandgrey-500 md:flex-grow">
-                <svg class="absolute top-0 left-0 h-8 w-8 -translate-x-3 -translate-y-2 transform text-gray-200" fill="currentColor" viewBox="0 0 32 32" aria-hidden="true">
-                  <path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z" />
-                </svg>
-                <p class="relative">{review.quote}</p>
-              </div>
-      
-              <footer class="mt-4">
-                <p class="text-base font-semibold text-brandgrey-500">Taster's comment</p>
-              </footer>
-            </blockquote>
-          </div>
-        </div>
-      :
-        <img class="h-full w-full object-cover" src={urlForImage(review.image)} alt="Image of a mince pie">
-      }
+    <div class="h-56 bg-indigo-600 sm:h-72 lg:absolute lg:left-0 lg:h-full lg:w-1/2">      
+        <img class="h-full w-full object-cover" src={urlForImage(review.image)} alt="Image of a mince pie">      
+
+
     </div>
-    <div class={`relative mx-auto max-w-7xl px-4 py-8 lg:mt-0 sm:py-12 sm:px-6 lg:py-16 ${hasQuote ? 'py-12' : 'py-8 sm:py-12'}`}>
+    <div class="relative mx-auto max-w-7xl px-4 lg:mt-0 sm:px-6 lg:py-16">
       <div class="mx-auto max-w-2xl lg:mr-0 lg:ml-auto lg:w-1/2 lg:max-w-none lg:pl-10">
         
         <h2 class="mt-6 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">{review.brand} {review.range ?? ''}</h2>
