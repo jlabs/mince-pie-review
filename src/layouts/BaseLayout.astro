@@ -3,6 +3,7 @@ import '@fontsource/montserrat';
 
 import Nav from "./components/Nav.astro";
 import Footer from "./components/Footer.astro";
+import { ViewTransitions } from 'astro:transitions';
 
 const { title, heroTitle } = Astro.props;
 ---
@@ -47,6 +48,8 @@ const { title, heroTitle } = Astro.props;
         <meta property="og:title" content="Mince Pie Review by Matrix Create">
         <meta property="og:description" content="Mince Pie Review">
         <meta property="og:image" content="/assets/images/ogimg.jpg">
+
+        <ViewTransitions />
     </head>
 
     <body class='bg-brandyellow-500'>
