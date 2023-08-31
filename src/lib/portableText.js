@@ -1,5 +1,4 @@
-import { portableTextToHtml } from 'astro-sanity';
-import { urlForImage } from '../lib/imageBuilder'
+import {PortableText as PortableTextInternal} from "astro-portabletext"
 
 const customComponents = {
     block: {

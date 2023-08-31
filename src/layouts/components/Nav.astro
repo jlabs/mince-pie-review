@@ -1,4 +1,7 @@
 ---
+import { Image } from 'astro:assets';
+import pieImage from '../../../public/images/pie.png';
+
 const pathname = new URL(Astro.request.url).pathname;
 const currentPath = pathname.slice(1).split('/')[0];
 
@@ -41,8 +44,8 @@ const passiveLinkMobile = ['text-[#FFB600]', 'block', 'px-3', 'py-2', 'rounded-m
          <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
             <div class="flex flex-shrink-0 items-center">
                <a href="/" title='To the homepage'>
-                  <img class="block h-8 w-auto lg:hidden" src="/images/pie.png" alt="Mince Pie Review">
-                  <img class="hidden h-8 w-auto lg:block" src="/images/pie.png" alt="Mince Pie Review">
+                  <Image src={pieImage} width={40} alt="Mince Pies Review logo" class="hidden h-8 w-auto lg:block" />
+                  <Image src={pieImage} width={40} alt="Mince Pies Review logo" class="block h-8 w-auto lg:hidden" />
                </a>
             </div>
             <div class="hidden sm:ml-6 sm:block">
@@ -59,7 +62,7 @@ const passiveLinkMobile = ['text-[#FFB600]', 'block', 'px-3', 'py-2', 'rounded-m
    <div class="sm:hidden hidden" id="mobile-menu">
       <div class="space-y-1 px-2 pt-2 pb-3">         
          <a href="/" class={currentPath == '' ? activeLinkMobile.join(' ') : passiveLinkMobile.join(' ')} aria-current="page">Home</a>
-         <a href="/reviews" class={currentPath == 'reviews' ? activeLinkMobile.join(' ') : passiveLinkMobile.join(' ')}>Reviews</a>
+         <a href="/reviews" class={currentPath == 'reviews' ? activeLinkMobile.join(' ') : passiveLinkMobile.join(' ')} transition:name="reviews">Reviews</a>
          <a href="/about" class={currentPath == 'about' ? activeLinkMobile.join(' ') : passiveLinkMobile.join(' ')}>About</a>
       </div>
    </div>
