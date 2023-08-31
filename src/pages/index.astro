@@ -1,9 +1,14 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ReviewCard from '../layouts/components/ReviewCard.astro';
+import SanityImage from '../components/SanityImage.astro';
 
 import { getAllReviews } from '../lib/api';
+
 import { urlForImage } from '../lib/imageBuilder'
+import {useSanityClient} from "@sanity/astro"
+const client = useSanityClient();
+const builder = urlForImage(client);
 
 const reviews = await getAllReviews();
 
@@ -29,36 +34,39 @@ const randomReviews = reviews.sort(() => 0.5 - Math.random()).slice(0, 7);
 							<div class="flex items-center space-x-6 lg:space-x-8">
 								<div class="grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
 									<div class="h-64 w-44 overflow-hidden rounded-lg sm:opacity-0 lg:opacity-100">
-										<img src={urlForImage(randomReviews[0].image)} alt="" class="h-full w-full object-cover object-center">
+										<SanityImage node={randomReviews[0].image} width="400" classes="h-full w-full object-cover object-center" />
 									</div>
 									<div class="h-64 w-44 overflow-hidden rounded-lg">
-										<img src={urlForImage(randomReviews[1].image)} alt="" class="h-full w-full object-cover object-center">
-									</div>
-								</div>
-								<div class="grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
-									<div class="h-64 w-44 overflow-hidden rounded-lg">
-										<img src={urlForImage(randomReviews[2].image)} alt="" class="h-full w-full object-cover object-center">
-									</div>
-									<div class="h-64 w-44 overflow-hidden rounded-lg">
-										<img src={urlForImage(randomReviews[3].image)} alt="" class="h-full w-full object-cover object-center">
-									</div>
-									<div class="h-64 w-44 overflow-hidden rounded-lg">
-										<img src={urlForImage(randomReviews[4].image)} alt="" class="h-full w-full object-cover object-center">
+										<SanityImage node={randomReviews[1].image} width="400" classes="h-full w-full object-cover object-center" />
 									</div>
 								</div>
 								<div class="grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
 									<div class="h-64 w-44 overflow-hidden rounded-lg">
-										<img src={urlForImage(randomReviews[5].image)} alt="" class="h-full w-full object-cover object-center">
+										<SanityImage node={randomReviews[2].image} width="400" classes="h-full w-full object-cover object-center" />
 									</div>
 									<div class="h-64 w-44 overflow-hidden rounded-lg">
-										<img src={urlForImage(randomReviews[6].image)} alt="" class="h-full w-full object-cover object-center">
+										<SanityImage node={randomReviews[3].image} width="400" classes="h-full w-full object-cover object-center" />
+									</div>
+									<div class="h-64 w-44 overflow-hidden rounded-lg">
+										<SanityImage node={randomReviews[4].image} width="400" classes="h-full w-full object-cover object-center" />
+									</div>
+								</div>
+								<div class="grid flex-shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
+									<div class="h-64 w-44 overflow-hidden rounded-lg">
+										<SanityImage node={randomReviews[5].image} width="400" classes="h-full w-full object-cover object-center" />
+									</div>
+									<div class="h-64 w-44 overflow-hidden rounded-lg">
+										<SanityImage node={randomReviews[6].image} width="400" classes="h-full w-full object-cover object-center" />
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 			
-					<a href="/reviews" class="inline-block rounded-md border border-transparent bg-brandyellow-500 py-3 px-8 text-center font-medium text-mincepiebg-500 hover:bg-[#F4F4F4]">Read the reviews</a>
+					<a href="/reviews" 
+						class="inline-block rounded-md border border-transparent bg-brandyellow-500 py-3 px-8 text-center font-medium text-mincepiebg-500 hover:bg-[#F4F4F4]"
+						transition:name="reviews"
+					>Read the reviews</a>
 				</div>
 			</div>
 			</div>
